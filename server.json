@@ -1,0 +1,102 @@
+{
+  "consultores": [
+    {
+      "id": 1,
+      "name": "David",
+      "email": "david@fcamara.com.br"
+    },
+    {
+      "id": 2,
+      "name": "Jenifer",
+      "email": "jenifer@fcamara.com.br"
+    },
+    {
+      "id": 3,
+      "name": "Carlos",
+      "email": "carlos@fcamara.com.br"
+    },
+    {
+      "id": 4,
+      "name": "Giselle",
+      "email": "giselle@fcamara.com.br"
+    },
+    {
+      "id": 5,
+      "name": "Sthefany",
+      "email": "sthefany@fcamara.com.br"
+    },
+    {
+      "id": 6,
+      "name": "Maria Letícia",
+      "email": "marialeticia@fcamara.com.br"
+    }
+  ],
+  "escritorios": [
+    {
+      "id": 1,
+      "localidade": "São Paulo",
+      "qtdEstacoes": 240
+    },
+    {
+      "id": 2,
+      "localidade": "Santos",
+      "qtdEstacoes": 40
+    }
+  ],
+  "estacaoDeTrabalho": [
+    {
+      "id": 1,
+      "numeroEstacao": 1,
+      "andar": 1,
+      "idEscritorio": 1
+    },
+    {
+      "id": 2,
+      "numeroEstacao": 4,
+      "andar": 1,
+      "idEscritorio": 1
+    },
+    {
+      "id": 3,
+      "numeroEstacao": 7,
+      "andar": 1,
+      "idEscritorio": 1
+    },
+    {
+      "id": 4,
+      "numeroEstacao": 11,
+      "andar": 2,
+      "idEscritorio": 1
+    },
+    {
+      "id": 5,
+      "numeroEstacao": 14,
+      "andar": 2,
+      "idEscritorio": 1
+    },
+    {
+      "id": 6,
+      "numeroEstacao": 17,
+      "andar": 2,
+      "idEscritorio": 1
+    },
+    {
+      "id": 7,
+      "numeroEstacao": 1,
+      "andar": 1,
+      "idEscritorio": 2
+    },
+    {
+      "id": 8,
+      "numeroEstacao": 3,
+      "andar": 1,
+      "idEscritorio": 2
+    }
+  ],
+  "agendamentos": [
+    { "id": 1, "data": "08 02 2021", "idEstacaoTrabalho": 1, "idConsultor": 1 },
+    { "id": 2, "data": "08 03 2021", "idEstacaoTrabalho": 2, "idConsultor": 1 },
+    { "id": 3, "data": "08 03 2021", "idEstacaoTrabalho": 3, "idConsultor": 2 },
+    { "id": 4, "data": "08 04 2021", "idEstacaoTrabalho": 4, "idConsultor": 3 }
+  ]
+}
