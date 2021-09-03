@@ -1,5 +1,5 @@
-import React, { InputHTMLAttributes } from "react";
-
+import { InputHTMLAttributes } from "react";
+import styles from './styles.module.scss'; 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   id: string;
@@ -10,7 +10,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 export const Input = ({ label, id, setValue, value, ...props }: InputProps) => {
   return (
     <>
-      <label htmlFor={id}>{label}</label>
+      <label className={styles.label} htmlFor={id}>{label}</label>
       <input
         type="text"
         id={id}
@@ -18,6 +18,7 @@ export const Input = ({ label, id, setValue, value, ...props }: InputProps) => {
         value={value}
         onChange={({ target }) => setValue(target.value)}
         {...props}
+        className={styles.input}
       />
     </>
   );
