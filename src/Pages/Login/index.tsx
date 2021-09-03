@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
-
+  const [password, setPassword] = useState("");
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
     const response = await api.get(`consultores/?email=${email}`);
@@ -25,6 +25,15 @@ export const Login = () => {
             setValue={setEmail}
             value={email}
             placeholder={'Insira o seu email'}
+            required
+          />
+          <Input
+            id={"password"}
+            label={"Senha"}
+            type={"password"}
+            setValue={setPassword}
+            value={password}
+            placeholder={'Insira a sua senha'}
             required
           />
 
