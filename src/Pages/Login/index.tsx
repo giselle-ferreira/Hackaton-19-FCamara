@@ -12,20 +12,25 @@ export const Login = () => {
     console.log(response);
   };
   return (
-    <div>
-      <form onSubmit={handleLogin}>
-        <Input
-          id={"email"}
-          label={"Email: "}
-          type={"email"}
-          setValue={setEmail}
-          value={email}
-          required
-        />
-        <div>
-          <button type="submit">Login</button>
-        </div>
-      </form>
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <header>
+          <h1>Login</h1>
+        </header>
+        <form className={styles.form} onSubmit={handleLogin}>
+          <Input
+            id={"email"}
+            label={"Email"}
+            type={"email"}
+            setValue={setEmail}
+            value={email}
+            placeholder={'Insira o seu email'}
+            required
+          />
+
+          <button type="submit">Entrar</button>
+        </form>
+      </div>
     </div>
   );
 };
