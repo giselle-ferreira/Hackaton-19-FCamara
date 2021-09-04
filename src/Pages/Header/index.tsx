@@ -17,7 +17,7 @@ export const Header = () => {
             transform="translate(1089 -102)"
             fill="#fe4400"
             stroke="rgba(0,0,0,0)"
-            stroke-width="1"
+            strokeWidth="1"
           />
         </g>
       </svg>
