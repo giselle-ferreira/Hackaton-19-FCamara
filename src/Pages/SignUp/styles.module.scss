@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   .content {
     max-width: 720px;
     margin: 0 auto;
@@ -21,8 +22,8 @@
     }
     .form {
       width: 480px;
-      height: 300px;
-      padding: 30px 0;
+      min-height: 300px;
+      padding: 0;
       border: 2px solid #4b4fa1;
       border-radius: 0.5rem ;
       display: flex;

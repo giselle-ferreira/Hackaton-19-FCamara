@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import { Link } from "react-router-dom";
 import { Input } from "../../components/Input";
 import { api } from "../../services/api";
 import styles from "./styles.module.scss";
@@ -24,7 +25,7 @@ export const Login = () => {
             type={"email"}
             setValue={setEmail}
             value={email}
-            placeholder={'Insira o seu email'}
+            placeholder={"Insira o seu email"}
             required
           />
           <Input
@@ -33,11 +34,13 @@ export const Login = () => {
             type={"password"}
             setValue={setPassword}
             value={password}
-            placeholder={'Insira a sua senha'}
+            placeholder={"Insira a sua senha"}
             required
           />
 
           <button type="submit">Entrar</button>
+
+          <Link to="/signUp">Cadastre-se</Link>
         </form>
       </div>
     </div>
