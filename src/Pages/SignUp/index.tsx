@@ -1,4 +1,6 @@
 import { FormEvent, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import { useHistory } from "react-router";
 import { Input } from "../../components/Input";
 import { api } from "../../services/api";
 import styles from "./styles.module.scss";
@@ -6,13 +8,21 @@ export const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
   const handleSignUp = async (e: FormEvent) => {
     e.preventDefault();
-    const request = await api.post(`consultores`, {
-      name,
-      email,
-    });
-    console.log(request);
+    try {
+      await api.post(`users`, {
+        name,
+        email,
+        password,
+      });
+      toast.success("Cadastro realizado com sucesso!");
+
+      setTimeout(() => history.push("/"), 2000);
+    } catch {
+      return toast.error("Preencha os dados corretamente!");
+    }
   };
 
   return (
