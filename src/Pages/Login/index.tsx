@@ -1,6 +1,6 @@
 import { FormEvent, useContext, useState } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Input } from "../../components/Input";
 import { UserContext } from "../../Context/UserContext";
 import { api } from "../../services/api";
@@ -9,14 +9,19 @@ import styles from "./styles.module.scss";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
   const userContext = useContext(UserContext);
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
     try {
       const response = await api.post(`sessions`, { email, password });
       const userData = response.data.user;
-      
+      const token = response.data.token;
+
       userContext?.storeData({ name: userData.name, email: userData.email });
+      window.localStorage.setItem("fcalendartoken", token);
+
+      history.push("/home");
     } catch {
       toast.error("Senha ou email inválidos!");
     }
@@ -37,7 +42,6 @@ export const Login = () => {
             placeholder={"Insira o seu email"}
             required
           />
-          {userContext?.data.name}
           <Input
             id={"password"}
             label={"Senha"}
