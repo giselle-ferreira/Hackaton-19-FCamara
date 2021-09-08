@@ -1,44 +1,81 @@
 .container {
-  max-width: 1120px;
-  height: 100vh;
-  margin: 0 auto;
-  padding: 0 2rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: stretch;
+  height: 100vh;
 
-  .content {
-    max-width: 720px;
-    margin: 0 auto;
-    header
-    {
-      padding: 20px 0;
-      h1
-      {
-        font-size: 1.5rem;
-        color: #9e9e9e;
-        text-align: center;
-      }
+  aside {
+    flex: 7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #4b4fa1;
+    .logo {
+      max-width: 20rem;
+      max-height: 12rem;
     }
-    .form {
-      width: 480px;
-      min-height: 300px;
-      padding: 0;
-      border: 2px solid #4b4fa1;
-      border-radius: 0.5rem ;
+    h2 {
+      color: #fff;
+      font-size: 0.875rem;
+    }
+  }
+
+  main {
+    flex: 8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .mainContent {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      width: 100%;
+      max-width: 20rem;
+      align-items: stretch;
 
-      button {
-        display: block;
+      form {
         width: 80%;
-        padding: 0.75rem 0;
-        margin: 30px auto;
-        border: 1px solid #e0e0e0;
-        border-radius: 5px;
-        color: #9e9e9e;
+        background: #4b4fa1;
+        padding: 4rem;
+        border-radius: 0.875rem;
+        h2 {
+          font-size: 1.5rem;
+          margin: 2rem 0 1.5rem;
+          text-align: center;
+          font-family: sans-serif;
+          color: #fcfcfc;
+        }
+
+        input {
+          margin-top: 0.875rem;
+        }
+        .forgetPassword {
+          text-align: right;
+          margin-top: 0.875rem;
+        }
+        button {
+          display: block;
+          margin: 0 auto;
+          margin-top: 1rem;
+          width: 50%;
+          padding: 0.5rem;
+          border-radius: 0.5rem;
+          border: none;
+        }
+        a {
+          text-align: center;
+          display: block;
+          margin: 0 auto;
+          text-decoration: none;
+          color: #fcfcfc;
+          font-size: 0.9rem;
+        }
+      }
+      .logoFCamara {
+        position: fixed;
+        bottom: -4rem;
+        right: 2rem;
+        max-width: 8rem;
       }
     }
   }

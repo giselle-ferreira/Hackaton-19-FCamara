@@ -1,7 +1,6 @@
 import { InputHTMLAttributes, useState } from "react";
 import styles from "./styles.module.scss";
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
   id: string;
   value: string;
   setValue: (value: string) => void;
@@ -14,7 +13,7 @@ const types = {
     message: "Preencha um email válido!",
   },
 };
-export const Input = ({ label, id, setValue, value, ...props }: InputProps) => {
+export const Input = ({ id, setValue, value, ...props }: InputProps) => {
   const [error, setError] = useState("");
 
   const validate = () => {
@@ -30,9 +29,6 @@ export const Input = ({ label, id, setValue, value, ...props }: InputProps) => {
   };
   return (
     <>
-      <label className={styles.label} htmlFor={id}>
-        {label}
-      </label>
       <input
         type="text"
         id={id}
