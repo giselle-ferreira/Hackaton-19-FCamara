@@ -1,11 +1,13 @@
 import { FormEvent, useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { useHistory } from "react-router";
 import { Input } from "../../components/Input";
 import { api } from "../../services/api";
 import styles from "./styles.module.scss";
 import WomanAndACalendar from "../../Assets/Images/womanAndACalendar.svg";
 import { Link } from "react-router-dom";
+
+
 export const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
