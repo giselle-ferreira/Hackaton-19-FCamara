@@ -1,6 +1,11 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { UserContext } from "../../Context/UserContext";
 import styles from "./styles.module.scss";
 
 export const Header = () => {
+  const userContext = useContext(UserContext);
+
   return (
     <header className={styles.header}>
       <svg
@@ -33,7 +38,11 @@ export const Header = () => {
         </defs>
       </svg>
 
-      {/* add here the condition to show the element logout or not  */}
+      {userContext.data.name.length > 0 && (
+        <div>
+          Bem vindo, {userContext?.data.name} | <Link to={"/"}></Link>
+        </div>
+      )}
     </header>
   );
 };

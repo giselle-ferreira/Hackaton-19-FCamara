@@ -18,7 +18,7 @@ export const Login = () => {
       const userData = response.data.user;
       const token = response.data.token;
 
-      userContext?.storeData({ name: userData.name, email: userData.email });
+      userContext?.storeData({ name: userData.name, email: userData.email, id: userData.id, jwt: token });
       window.localStorage.setItem("fcalendartoken", token);
 
       history.push("/home");
