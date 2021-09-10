@@ -3,16 +3,32 @@ import { SignUp } from "./Pages/SignUp";
 import { Home } from "./Pages/Home";
 import { Login } from "./Pages/Login";
 import { Scheduling } from "./Pages/Scheduling";
-import {Header} from './Pages/Header'
+import { Header } from "./Pages/Header";
+
 
 export const Routes = () => {
-  const token = window.localStorage.getItem("fcalendartoken");
+  const tokenCheck = () => 
+  {
+    const token = window.localStorage.getItem("fcalendartoken");
+
+    if(token) {
+      return token;
+    }
+    else
+    {
+      return false;
+    }
+  }
 
   return (
     <BrowserRouter>
-     {!token ? <Redirect to='/'/> : window.location.pathname === '/' ? <Redirect to='/home' /> : null}
+      {!tokenCheck() && window.location.pathname !== '/signUp' ?  (
+        <Redirect to="/" />
+      ) : window.location.pathname === "/" ? (
+        <Redirect to="/home" />
+      ) : null}
       <Route path="/" exact component={Login} />
-      <Header/>
+      {window.location.pathname !== "/" ? <Header /> : null}
       <Route path="/home" component={Home} />
       <Route path="/scheduling" component={Scheduling} />
       <Route path="/signUp" component={SignUp} />

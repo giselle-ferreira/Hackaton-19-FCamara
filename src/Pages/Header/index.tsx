@@ -1,11 +1,16 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
 import styles from "./styles.module.scss";
 
 export const Header = () => {
   const userContext = useContext(UserContext);
+  const history = useHistory();
+  const logout = () => {
+    userContext.clearData();
 
+    history.push("/");
+  };
   return (
     <header className={styles.header}>
       <svg
@@ -40,7 +45,7 @@ export const Header = () => {
 
       {userContext.data.name.length > 0 && (
         <div>
-          Bem vindo, {userContext?.data.name} | <Link to={"/"}></Link>
+          Bem vindo, {userContext.data.name} | <button onClick={logout}>Sair</button>
         </div>
       )}
     </header>
