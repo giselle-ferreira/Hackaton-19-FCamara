@@ -5,7 +5,6 @@ import { Input } from "../../components/Input";
 import { api } from "../../services/api";
 import styles from "./styles.module.scss";
 import WomanAndACalendar from "../../Assets/Images/womanAndACalendar.svg";
-import { Header } from "../Header";
 import { Link } from "react-router-dom";
 export const SignUp = () => {
   const [name, setName] = useState("");
@@ -36,7 +35,6 @@ export const SignUp = () => {
 
   return (
     <>
-      <Header />
       <div className={styles.container}>
         <aside>
           <img
