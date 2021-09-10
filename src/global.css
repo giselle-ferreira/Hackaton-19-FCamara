@@ -4,8 +4,11 @@
   box-sizing: content-box;
 }
 body {
-  background-color: #f5f5f5;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #ffffff;
+  font-family: 'Spartan', sans-serif;
+}
+input, placeholder, select, textarea{
+  font-family: 'WorkSans', sans-serif;
 }
 
 #root {
