@@ -42,11 +42,6 @@ export const SignUp = () => {
     <Header />
       <div className={styles.container}>
         <aside>
-          <img
-            className={styles.logo}
-            src={WomanAndACalendar}
-            alt={"Uma mulher e um calendário"}
-          />
           <div className={styles.descriptionArea}>
             <h2>Feito pra você!</h2>
             <p>
@@ -54,6 +49,11 @@ export const SignUp = () => {
               rápida e prática.
             </p>
           </div>
+          <img
+            className={styles.logo}
+            src={WomanAndACalendar}
+            alt={"Uma mulher e um calendário"}
+          />
         </aside>
         <main>
           <div className={styles.mainContent}>
