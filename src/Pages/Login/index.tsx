@@ -40,10 +40,16 @@ export const Login = () => {
             className={styles.logo}
           />
           <h2>Programe e organize sua rotina de trabalho em poucos cliques!</h2>
+          <button
+            className={styles.responsiveLoginButton}
+            onClick={() => (window.location.href = `#form`)}
+          >
+            Login
+          </button>
         </aside>
         <main>
           <div className={styles.mainContent}>
-            <form className={styles.form} onSubmit={handleLogin}>
+            <form id="form" className={styles.form} onSubmit={handleLogin}>
               <h2>Login</h2>
               <Input
                 id={"email"}
