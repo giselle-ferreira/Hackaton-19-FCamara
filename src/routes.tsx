@@ -1,33 +1,34 @@
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import { SignUp } from "./Pages/SignUp";
 import { Home } from "./Pages/Home";
 import { Login } from "./Pages/Login";
 import { Scheduling } from "./Pages/Scheduling";
+import { NotFound } from "./Pages/NotFound";
 export const Routes = () => {
-  const tokenCheck = () => 
-  {
+  const tokenCheck = () => {
     const token = window.localStorage.getItem("fcalendartoken");
 
-    if(token) {
+    if (token) {
       return token;
-    }
-    else
-    {
+    } else {
       return false;
     }
-  }
+  };
 
   return (
     <BrowserRouter>
-      {!tokenCheck() && window.location.pathname !== '/signUp' ?  (
+      {!tokenCheck() && window.location.pathname !== "/signUp" ? (
         <Redirect to="/" />
       ) : window.location.pathname === "/" ? (
         <Redirect to="/home" />
       ) : null}
-      <Route path="/" exact component={Login} />
-      <Route path="/home" component={Home} />
-      <Route path="/scheduling" component={Scheduling} />
-      <Route path="/signUp" component={SignUp} />
+      <Switch>
+        <Route path="/" exact component={Login} />
+        <Route path="/home" component={Home} />
+        <Route path="/scheduling" component={Scheduling} />
+        <Route path="/signUp" component={SignUp} />
+        <Route component={NotFound} />
+      </Switch>
     </BrowserRouter>
   );
 };

@@ -43,15 +43,15 @@ export const Header = () => {
           />
         </defs>
       </svg>
-
-      {userContext.data.name.length > 0 && (
-        <div>
-          Bem vindo, <strong> {userContext.data.name.split(" ")[0]}</strong> |{" "}
-          <button onClick={logout}>
-            <LogOut color="#2F2F2F" size={20} className={styles.logoutIcon} />
-          </button>
-        </div>
-      )}
+      {userContext.data.name.length > 0 &&
+        window.location.pathname !== "/signUp" && (
+          <div>
+            Bem vindo, <strong> {userContext.data.name.split(" ")[0]}</strong> |{" "}
+            <button onClick={logout}>
+              <LogOut color="#2F2F2F" size={20} className={styles.logoutIcon} />
+            </button>
+          </div>
+        )}
     </header>
   );
 };
