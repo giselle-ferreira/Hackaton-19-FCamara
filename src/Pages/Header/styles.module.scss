@@ -2,7 +2,20 @@
 {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 1.25rem;
   height: 2rem;
   background: #f8f8f8;
+  button
+  {
+    background: none;
+    border: none;
+    height:20px;
+    justify-self: center;
+    .logoutIcon {
+      display: block;
+      position: relative;
+      top: 3px;
+    }
+  }
 }

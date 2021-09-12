@@ -4,8 +4,7 @@ export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <p>
-        © 2021 Grupo FCamara Formação e Consultoria <br />
-        Todos os direitos reservados.
+        © 2021 FCalendar - Todos os direitos reservados.
       </p>
     </footer>
   );

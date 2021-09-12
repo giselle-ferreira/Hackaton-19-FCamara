@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
+import { LogOut } from "react-feather";
 import styles from "./styles.module.scss";
 
 export const Header = () => {
@@ -45,7 +46,10 @@ export const Header = () => {
 
       {userContext.data.name.length > 0 && (
         <div>
-          Bem vindo, {userContext.data.name} | <button onClick={logout}>Sair</button>
+          Bem vindo, <strong> {userContext.data.name.split(" ")[0]}</strong> |{" "}
+          <button onClick={logout}>
+            <LogOut color="#2F2F2F" size={20} className={styles.logoutIcon} />
+          </button>
         </div>
       )}
     </header>

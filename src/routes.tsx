@@ -3,9 +3,6 @@ import { SignUp } from "./Pages/SignUp";
 import { Home } from "./Pages/Home";
 import { Login } from "./Pages/Login";
 import { Scheduling } from "./Pages/Scheduling";
-import { Header } from "./Pages/Header";
-
-
 export const Routes = () => {
   const tokenCheck = () => 
   {
@@ -28,7 +25,6 @@ export const Routes = () => {
         <Redirect to="/home" />
       ) : null}
       <Route path="/" exact component={Login} />
-      {window.location.pathname !== "/" ? <Header /> : null}
       <Route path="/home" component={Home} />
       <Route path="/scheduling" component={Scheduling} />
       <Route path="/signUp" component={SignUp} />
