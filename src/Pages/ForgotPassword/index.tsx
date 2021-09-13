@@ -9,14 +9,14 @@ import { Input } from "../../components/Input";
 import { FormEvent, useState } from "react";
 import { EmailRegexTeste } from "../../services/emailRegexTeste";
 import { api } from "../../services/api";
-export const ForgetPassword = () => {
+export const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
-  const handleForgetPassword = (e: FormEvent) => {
+  const handleForgotPassword = (e: FormEvent) => {
     e.preventDefault();
     try {
       if (EmailRegexTeste(email)) {
-        api.post("forgetpassword", {
+        api.post("forgotpassword", {
           email,
         });
       } else {
@@ -42,7 +42,7 @@ export const ForgetPassword = () => {
             <form
               id="form"
               className={styles.form}
-              onSubmit={handleForgetPassword}
+              onSubmit={handleForgotPassword}
             >
               <h2>esqueceu a senha?</h2>
               <p className={styles.description}>
