@@ -10,6 +10,7 @@ import { Header } from "../Header";
 import { Footer } from "../Footer";
 import Loading from "../../components/Loading";
 import { EmailRegexTeste } from "../../services/emailRegexTeste";
+import { Button } from "../../components/Button";
 
 export const SignUp = () => {
   const [name, setName] = useState("");
@@ -107,12 +108,12 @@ export const SignUp = () => {
                 required
               />
               <div className={styles.registerOrLoginArea}>
-                {!loading ? (
-                  <button type="submit">Cadastre-se</button>
+              {!loading ? (
+                  <Button onClick={handleSignUp}>Cadastre-se</Button>
                 ) : (
-                  <button className={styles.disabledButton} disabled>
+                  <Button disabledClass={styles.disabledButton} disabled>
                     <Loading />
-                  </button>
+                  </Button>
                 )}
                 <p>
                   Já tem uma conta? <br />

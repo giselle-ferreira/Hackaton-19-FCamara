@@ -8,6 +8,7 @@ import styles from "./styles.module.scss";
 import FCalendarLogo from "../../Assets/Images/logoFCalendar.svg";
 import Loading from "../../components/Loading";
 import { EmailRegexTeste } from "../../services/emailRegexTeste";
+import { Button } from "../../components/Button";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -84,11 +85,11 @@ export const Login = () => {
               />
               <div className={styles.loginButtonForgetPasswordArea}>
                 {!loading ? (
-                  <button type="submit">Entrar</button>
+                  <Button onClick={handleLogin}>Entrar</Button>
                 ) : (
-                  <button className={styles.disabledButton} disabled>
+                  <Button disabledClass={styles.disabledButton} disabled>
                     <Loading />
-                  </button>
+                  </Button>
                 )}
                 <Link to="#" className={styles.forgetPassword}>
                   {" "}
