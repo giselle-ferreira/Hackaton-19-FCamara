@@ -6,22 +6,19 @@ import { Scheduling } from "./Pages/Scheduling";
 import { NotFound } from "./Pages/NotFound";
 import { ForgotPassword } from "./Pages/ForgotPassword";
 import { ResetPassword } from "./Pages/ResetPassword";
+import ProtectedRoute from "./Helper/ProtectedRoute";
+import { checkToken } from "./services/checkToken";
 export const Routes = () => {
- 
-
   return (
     <BrowserRouter>
-      {/* {!tokenCheck() &&
-      window.location.pathname !== "/signUp" &&
-      window.location.pathname !== "/forgetPassword" &&
-      window.location.pathname !== "/resetPassword/*" ? (
-        <Redirect to="/" />
-      ) : window.location.pathname === "/" ? (
+      {/* it checks if the token exists and redirect to home if its true */}
+      {(checkToken() && window.location.pathname !== "/signUp") ||
+      window.location.pathname !== "/" ? (
         <Redirect to="/home" />
-      ) : null} */}
+      ) : null}
       <Switch>
         <Route path="/" exact component={Login} />
-        <Route path="/home" component={Home} />
+        <ProtectedRoute path="/home" component={Home} />
         <Route path="/scheduling" component={Scheduling} />
         <Route path="/signUp" component={SignUp} />
         <Route path="/forgotPassword" component={ForgotPassword} />

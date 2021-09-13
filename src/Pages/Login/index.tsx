@@ -17,7 +17,6 @@ export const Login = () => {
   const history = useHistory();
 
   const userContext = useContext(UserContext);
-
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
 
