@@ -70,6 +70,11 @@
             background: #8c388c;
             color: #e5e5e5;
           }
+          .disabledButton 
+          {
+            padding: 0.375rem 0.5rem;
+            opacity: 0.8;
+          }
           .forgetPassword {
             display: block;
             text-align: right;

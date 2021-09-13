@@ -8,19 +8,27 @@ import WomanAndACalendar from "../../Assets/Images/womanAndACalendar.svg";
 import { Link } from "react-router-dom";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
-
+import Loading from "../../components/Loading";
+import { EmailRegexTeste } from "../../services/emailRegexTeste";
 
 export const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [checkPassword, setCheckPassword] = useState("");
+
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
   const handleSignUp = async (e: FormEvent) => {
     e.preventDefault();
 
     try {
-      if (password.length > 3 && password === checkPassword) {
+      setLoading(true);
+      if (
+        password.length > 3 &&
+        password === checkPassword &&
+        EmailRegexTeste(email)
+      ) {
         await api.post(`users`, {
           name,
           email,
@@ -34,12 +42,14 @@ export const SignUp = () => {
       }
     } catch {
       return toast.error("Preencha os dados corretamente!");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <>
-    <Header />
+      <Header />
       <div className={styles.container}>
         <aside>
           <div className={styles.descriptionArea}>
@@ -97,7 +107,13 @@ export const SignUp = () => {
                 required
               />
               <div className={styles.registerOrLoginArea}>
-                <button type="submit">Cadastre-se</button>
+                {!loading ? (
+                  <button type="submit">Cadastre-se</button>
+                ) : (
+                  <button className={styles.disabledButton} disabled>
+                    <Loading />
+                  </button>
+                )}
                 <p>
                   Já tem uma conta? <br />
                   <Link to={"/"}>Faça Login</Link>

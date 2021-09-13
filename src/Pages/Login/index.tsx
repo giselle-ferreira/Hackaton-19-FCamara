@@ -6,28 +6,43 @@ import { UserContext } from "../../Context/UserContext";
 import { api } from "../../services/api";
 import styles from "./styles.module.scss";
 import FCalendarLogo from "../../Assets/Images/logoFCalendar.svg";
+import Loading from "../../components/Loading";
+import { EmailRegexTeste } from "../../services/emailRegexTeste";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
+
   const userContext = useContext(UserContext);
+
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
+
     try {
-      const response = await api.post(`sessions`, { email, password });
-      const userData = response.data.user;
-      const token = response.data.token;
+      setLoading(true);
 
-      userContext?.storeData({
-        name: userData.name,
-        email: userData.email,
-        id: userData.id,
-      });
-      window.localStorage.setItem("fcalendartoken", token);
+      if (EmailRegexTeste(email)) {
+        const response = await api.post(`sessions`, { email, password });
+        const userData = response.data.user;
+        const token = response.data.token;
 
-      history.push("/home");
+        userContext?.storeData({
+          name: userData.name,
+          email: userData.email,
+          id: userData.id,
+        });
+        window.localStorage.setItem("fcalendartoken", token);
+
+        history.push("/home");
+      } else {
+        return toast.error("Digite um email válido para prosseguir!");
+      }
     } catch {
       toast.error("Senha ou email inválidos!");
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -68,7 +83,13 @@ export const Login = () => {
                 required
               />
               <div className={styles.loginButtonForgetPasswordArea}>
-                <button type="submit">Entrar</button>
+                {!loading ? (
+                  <button type="submit">Entrar</button>
+                ) : (
+                  <button className={styles.disabledButton} disabled>
+                    <Loading />
+                  </button>
+                )}
                 <Link to="#" className={styles.forgetPassword}>
                   {" "}
                   esqueceu a sua senha?
