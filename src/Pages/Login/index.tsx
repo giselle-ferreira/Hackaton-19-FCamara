@@ -85,7 +85,7 @@ export const Login = () => {
               />
               <div className={styles.loginButtonForgetPasswordArea}>
                 {!loading ? (
-                  <Button onClick={handleLogin}>Entrar</Button>
+                  <Button>Entrar</Button>
                 ) : (
                   <Button disabledClass={styles.disabledButton} disabled>
                     <Loading />

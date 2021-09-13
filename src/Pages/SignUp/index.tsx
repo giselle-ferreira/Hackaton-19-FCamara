@@ -109,7 +109,7 @@ export const SignUp = () => {
               />
               <div className={styles.registerOrLoginArea}>
               {!loading ? (
-                  <Button onClick={handleSignUp}>Cadastre-se</Button>
+                  <Button>Cadastre-se</Button>
                 ) : (
                   <Button disabledClass={styles.disabledButton} disabled>
                     <Loading />

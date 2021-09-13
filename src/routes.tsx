@@ -4,6 +4,7 @@ import { Home } from "./Pages/Home";
 import { Login } from "./Pages/Login";
 import { Scheduling } from "./Pages/Scheduling";
 import { NotFound } from "./Pages/NotFound";
+import { ForgetPassword } from "./Pages/ForgetPassword";
 export const Routes = () => {
   const tokenCheck = () => {
     const token = window.localStorage.getItem("fcalendartoken");
@@ -17,7 +18,9 @@ export const Routes = () => {
 
   return (
     <BrowserRouter>
-      {!tokenCheck() && window.location.pathname !== "/signUp" ? (
+      {!tokenCheck() &&
+      window.location.pathname !== "/signUp" &&
+      window.location.pathname !== "/forgetPassword" ? (
         <Redirect to="/" />
       ) : window.location.pathname === "/" ? (
         <Redirect to="/home" />
@@ -27,6 +30,7 @@ export const Routes = () => {
         <Route path="/home" component={Home} />
         <Route path="/scheduling" component={Scheduling} />
         <Route path="/signUp" component={SignUp} />
+        <Route path="/forgetPassword" component={ForgetPassword} />
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
