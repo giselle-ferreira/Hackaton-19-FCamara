@@ -61,7 +61,7 @@ export const SignUp = () => {
             </p>
           </div>
           <img
-            className={styles.logo}
+            className={styles.womanAndACalendar}
             src={WomanAndACalendar}
             alt={"Uma mulher e um calendário"}
           />
@@ -108,7 +108,7 @@ export const SignUp = () => {
                 required
               />
               <div className={styles.registerOrLoginArea}>
-              {!loading ? (
+                {!loading ? (
                   <Button>Cadastre-se</Button>
                 ) : (
                   <Button disabledClass={styles.disabledButton} disabled>
@@ -133,6 +133,12 @@ export const SignUp = () => {
                 <li>✓ Acompanhe seus agendamentos atuais e passados</li>
               </ul>
             </div>
+
+            <img
+              className={styles.womanAndACalendarMobile}
+              src={WomanAndACalendar}
+              alt={"Uma mulher e um calendário"}
+            />
           </div>
         </main>
       </div>
