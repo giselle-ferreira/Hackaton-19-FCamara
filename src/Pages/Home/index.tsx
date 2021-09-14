@@ -6,7 +6,8 @@ import { Header } from "../Header";
 import styles from "./styles.module.scss";
 
 import visualizarImg from "../../Assets/Images/visualizar.svg";
-import editarImg from "../../Assets/Images/editar.svg";
+import cancelSchedulingIcon from "../../Assets/Images/cancelScheduling.svg";
+import localizacaoIcon from '../../Assets/Images/localizacao.svg';
 export const Home = () => {
   const userContext = useContext(UserContext);
   return (
@@ -32,40 +33,36 @@ export const Home = () => {
                   </tr>
                 </thead> -->
               </div>  */}
-                <thead>
-                  <div className={styles.tableTitle}>
-                    <h2>Data</h2>
-                    <h2>Estação de trabalho</h2>
-                  </div>
+                <thead className={styles.tableTitle}>
+                  <tr>
+                    <th>Data</th>
+                    <th>Estação de trabalho</th>
+                  </tr>
                 </thead>
 
-                <tbody>
-                  <div className={styles.tableBody}>
-                    <tr>
-                      <td>DD/MM/YYYY</td>
-                      <td>XX - Setor X</td>
-                    </tr>
-                    <tr>
-                      <td>DD/MM/YYYY</td>
-                      <td>XX - Setor X</td>
-                    </tr>
-                    <tr>
-                      <td>DD/MM/YYYY</td>
-                      <td>XX - Setor X</td>
-                    </tr>
-                    <tr>
-                      <td>DD/MM/YYYY</td>
-                      <td>XX - Setor X</td>
-                    </tr>
-                    <tr>
-                      <td>DD/MM/YYYY</td>
-                      <td>XX - Setor X</td>
-                    </tr>
-                  </div>
+                <tbody className={styles.tableBody}>
+                  <tr>
+                    <td>DD/MM/YYYY</td>
+                    <td>XX - Setor X</td>
+                  </tr>
+                  <tr>
+                    <td>DD/MM/YYYY</td>
+                    <td>XX - Setor X</td>
+                  </tr>
+                  <tr>
+                    <td>DD/MM/YYYY</td>
+                    <td>XX - Setor X</td>
+                  </tr>
+                  <tr>
+                    <td>DD/MM/YYYY</td>
+                    <td>XX - Setor X</td>
+                  </tr>
+                  <tr>
+                    <td>DD/MM/YYYY</td>
+                    <td>XX - Setor X</td>
+                  </tr>
                 </tbody>
               </table>
-            </div>
-            {/* <!-- Páginas --> */}
             <div className={styles.pages}>
               <a href="#">
                 <svg
@@ -80,14 +77,11 @@ export const Home = () => {
                     fill="#B1B1B1"
                   />
                 </svg>
-              </a>
-              <a href="#">1</a>
-              <a href="#">2</a>
-              <a href="#">3</a>
-              <a href="#">4</a>
-              <a href="#">5</a>
-              <a href="#">6</a>
+              </a>{" "}
+              <a href="#">1</a> <a href="#">2</a> <a href="#">3</a>{" "}
+              <a href="#">4</a> <a href="#">5</a> <a href="#">6</a>{" "}
               <a href="#">
+                {" "}
                 <svg
                   width="16"
                   height="7"
@@ -102,16 +96,8 @@ export const Home = () => {
                 </svg>
               </a>
             </div>
-            <div className={styles.ordenar}>
-              <h4>
-                <img src={"/"} />
-                Ordernar(Mais recentes)
-              </h4>
-              <h4>
-                <img src={"/"} />
-                Filtrar
-              </h4>
             </div>
+           
           </div>
 
           {/* <!-- agendamentos atuais --> */}
@@ -120,7 +106,7 @@ export const Home = () => {
             <div className={styles.agendamento1}>
               <h2>Sexta-feira, 10/09/21</h2>
               <h3>
-                <img src="/" />
+                <img src={localizacaoIcon} />
                 São Paulo
               </h3>
             </div>
@@ -133,31 +119,8 @@ export const Home = () => {
               </h5>
               <h5>
                 <a href="#">
-                  <img src={visualizarImg} />
-                  Editar
-                </a>
-              </h5>
-            </div>
-
-            <div className={styles.agendamento2}>
-              <h2>Sexta-feira, 13/09/21</h2>
-              <h3>
-                <img src="/" />
-                São Paulo
-              </h3>
-            </div>
-
-            <div className={styles.visualEdit}>
-              <h5>
-                <a href="#">
-                  <img src={visualizarImg} />
-                  Visualizar
-                </a>
-              </h5>
-              <h5>
-                <a href="#">
-                  <img src={editarImg} />
-                  Editar
+                  <img src={cancelSchedulingIcon} />
+                  Cancelar Agendamento
                 </a>
               </h5>
             </div>
@@ -169,13 +132,17 @@ export const Home = () => {
             <div className={styles.botoes}>
               <div>
                 <a href="#">
-                  <button className={styles.btnSantos}>Santos</button>
+                  <button className={`${styles.btnSantos} ${styles.button}`}>
+                    Santos
+                  </button>
                 </a>
               </div>
 
               <div>
                 <a href="#">
-                  <button className={styles.btnSp}>São Paulo</button>
+                  <button className={`${styles.btnSp} ${styles.button}`}>
+                    São Paulo
+                  </button>
                 </a>
               </div>
             </div>
