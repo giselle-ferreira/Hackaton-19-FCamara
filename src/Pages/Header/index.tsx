@@ -3,8 +3,10 @@ import { useHistory } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
 import { LogOut } from "react-feather";
 import styles from "./styles.module.scss";
-
-export const Header = () => {
+type headerProps = {
+  disabledClass?: string;
+};
+export const Header = (props: headerProps) => {
   const userContext = useContext(UserContext);
   const history = useHistory();
   const logout = () => {
@@ -13,7 +15,9 @@ export const Header = () => {
     history.push("/");
   };
   return (
-    <header className={styles.header}>
+    <header
+      className={`${styles.header} ${props.disabledClass ? props.disabledClass : ""}`}
+    >
       <svg
         width="79"
         height="29"

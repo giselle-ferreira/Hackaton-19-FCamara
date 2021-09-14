@@ -4,7 +4,7 @@ import "./global.css";
 import { UserStorage } from "./Context/UserContext";
 function App() {
   return (
-    <UserStorage>  
+    <UserStorage>
       <Routes />
     </UserStorage>
   );

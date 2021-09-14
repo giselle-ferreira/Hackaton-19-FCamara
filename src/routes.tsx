@@ -11,9 +11,9 @@ import { checkToken } from "./services/checkToken";
 export const Routes = () => {
   return (
     <BrowserRouter>
-      {/* it checks if the token exists and redirect to home if its true */}
-      {(checkToken() && window.location.pathname !== "/signUp") ||
-      window.location.pathname !== "/" ? (
+      {/* it checks if the token exists and the url name is true and redirect to home if its true */}
+      {(checkToken() && window.location.pathname === "/signUp") ||
+      window.location.pathname === "/"  ? (
         <Redirect to="/home" />
       ) : null}
       <Switch>

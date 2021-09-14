@@ -9,12 +9,16 @@ import { Input } from "../../components/Input";
 import { FormEvent, useState } from "react";
 import { EmailRegexTeste } from "../../services/emailRegexTeste";
 import { api } from "../../services/api";
+import { Header } from "../Header";
+import { Footer } from "../Footer";
+
 export const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const handleForgotPassword = (e: FormEvent) => {
     e.preventDefault();
     try {
+      setLoading(true);
       if (EmailRegexTeste(email)) {
         api.post("forgotpassword", {
           email,
@@ -24,10 +28,13 @@ export const ForgotPassword = () => {
       }
     } catch {
       toast.error("Insinar um e-mail válido");
+    } finally {
+      setLoading(false);
     }
   };
   return (
     <>
+      <Header disabledClass={styles.headerDisabled} />
       <div className={styles.container}>
         <aside>
           <img
@@ -71,6 +78,7 @@ export const ForgotPassword = () => {
           </div>
         </main>
       </div>
+      <Footer />
       <Toaster position="top-center" reverseOrder={false} />
     </>
   );
