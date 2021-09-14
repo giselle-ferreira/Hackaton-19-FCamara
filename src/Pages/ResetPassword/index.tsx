@@ -7,6 +7,7 @@ import { Link, useHistory, useParams } from "react-router-dom";
 import { FormEvent, useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { api } from "../../services/api";
+import { Header } from "../Header";
 
 type paramsProps = {
   token: string;
@@ -60,6 +61,7 @@ export const ResetPassword = () => {
   };
   return (
     <>
+      <Header disabledClass={styles.headerDisabled} />
       <div className={styles.container}>
         <aside>
           <img

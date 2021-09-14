@@ -78,7 +78,6 @@ export const ForgotPassword = () => {
           </div>
         </main>
       </div>
-      <Footer />
       <Toaster position="top-center" reverseOrder={false} />
     </>
   );
