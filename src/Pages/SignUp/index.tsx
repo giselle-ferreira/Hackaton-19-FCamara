@@ -1,24 +1,35 @@
 import { FormEvent, useState } from "react";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { useHistory } from "react-router";
 import { Input } from "../../components/Input";
 import { api } from "../../services/api";
 import styles from "./styles.module.scss";
 import WomanAndACalendar from "../../Assets/Images/womanAndACalendar.svg";
 import { Link } from "react-router-dom";
-
+import { Header } from "../Header";
+import { Footer } from "../Footer";
+import Loading from "../../components/Loading";
+import { EmailRegexTeste } from "../../services/emailRegexTeste";
+import { Button } from "../../components/Button";
 
 export const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [checkPassword, setCheckPassword] = useState("");
+
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
   const handleSignUp = async (e: FormEvent) => {
     e.preventDefault();
 
     try {
-      if (password.length > 3 && password === checkPassword) {
+      setLoading(true);
+      if (
+        password.length > 3 &&
+        password === checkPassword &&
+        EmailRegexTeste(email)
+      ) {
         await api.post(`users`, {
           name,
           email,
@@ -32,18 +43,16 @@ export const SignUp = () => {
       }
     } catch {
       return toast.error("Preencha os dados corretamente!");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <>
+      <Header />
       <div className={styles.container}>
         <aside>
-          <img
-            className={styles.logo}
-            src={WomanAndACalendar}
-            alt={"Uma mulher e um calendário"}
-          />
           <div className={styles.descriptionArea}>
             <h2>Feito pra você!</h2>
             <p>
@@ -51,6 +60,11 @@ export const SignUp = () => {
               rápida e prática.
             </p>
           </div>
+          <img
+            className={styles.logo}
+            src={WomanAndACalendar}
+            alt={"Uma mulher e um calendário"}
+          />
         </aside>
         <main>
           <div className={styles.mainContent}>
@@ -94,7 +108,13 @@ export const SignUp = () => {
                 required
               />
               <div className={styles.registerOrLoginArea}>
-                <button type="submit">Cadastre-se</button>
+              {!loading ? (
+                  <Button>Cadastre-se</Button>
+                ) : (
+                  <Button disabledClass={styles.disabledButton} disabled>
+                    <Loading />
+                  </Button>
+                )}
                 <p>
                   Já tem uma conta? <br />
                   <Link to={"/"}>Faça Login</Link>
@@ -116,6 +136,8 @@ export const SignUp = () => {
           </div>
         </main>
       </div>
+      <Footer />
+      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 };

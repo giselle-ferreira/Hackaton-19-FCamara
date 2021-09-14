@@ -1,4 +1,5 @@
-import React, { ReactNode, createContext } from "react";
+import React, { ReactNode, createContext, useEffect } from "react";
+import { api } from "../../services/api";
 
 type StoreDataProps = {
   name: string;
@@ -23,7 +24,20 @@ export const UserContext = createContext<UserContextData>(
 
 export const UserStorage = ({ children }: UserContextProps) => {
   const [data, setData] = React.useState({ name: "", email: "", id: 0 });
-
+  useEffect(() => {
+    const token = window.localStorage.getItem("fcalendartoken");
+    console.log(token);
+    if (token) {
+      api
+        .get("sessions", {
+          headers: { Authorization: "Bearer " + token },
+        })
+        .then((response) => {
+          const { name, email, id } = response.data.user;
+          storeData({ name, email, id });
+        });
+    }
+  }, []);
   const storeData = ({ name, email, id }: StoreDataProps) => {
     setData({ name, email, id });
   };

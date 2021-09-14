@@ -1,37 +1,30 @@
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import { SignUp } from "./Pages/SignUp";
 import { Home } from "./Pages/Home";
 import { Login } from "./Pages/Login";
 import { Scheduling } from "./Pages/Scheduling";
-import { Header } from "./Pages/Header";
-
-
+import { NotFound } from "./Pages/NotFound";
+import { ForgotPassword } from "./Pages/ForgotPassword";
+import { ResetPassword } from "./Pages/ResetPassword";
+import ProtectedRoute from "./Helper/ProtectedRoute";
+import { checkToken } from "./services/checkToken";
 export const Routes = () => {
-  const tokenCheck = () => 
-  {
-    const token = window.localStorage.getItem("fcalendartoken");
-
-    if(token) {
-      return token;
-    }
-    else
-    {
-      return false;
-    }
-  }
-
   return (
     <BrowserRouter>
-      {!tokenCheck() && window.location.pathname !== '/signUp' ?  (
-        <Redirect to="/" />
-      ) : window.location.pathname === "/" ? (
+      {/* it checks if the token exists and the url name is true and redirect to home if its true */}
+      {(checkToken() && window.location.pathname === "/signUp") ||
+      window.location.pathname === "/"  ? (
         <Redirect to="/home" />
       ) : null}
-      <Route path="/" exact component={Login} />
-      {window.location.pathname !== "/" ? <Header /> : null}
-      <Route path="/home" component={Home} />
-      <Route path="/scheduling" component={Scheduling} />
-      <Route path="/signUp" component={SignUp} />
+      <Switch>
+        <Route path="/" exact component={Login} />
+        <ProtectedRoute path="/home" component={Home} />
+        <Route path="/scheduling" component={Scheduling} />
+        <Route path="/signUp" component={SignUp} />
+        <Route path="/forgotPassword" component={ForgotPassword} />
+        <Route path="/resetPassword/:token" component={ResetPassword} />
+        <Route component={NotFound} />
+      </Switch>
     </BrowserRouter>
   );
 };

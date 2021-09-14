@@ -1,9 +1,12 @@
 import { useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
+import { LogOut } from "react-feather";
 import styles from "./styles.module.scss";
-
-export const Header = () => {
+type headerProps = {
+  disabledClass?: string;
+};
+export const Header = (props: headerProps) => {
   const userContext = useContext(UserContext);
   const history = useHistory();
   const logout = () => {
@@ -12,7 +15,9 @@ export const Header = () => {
     history.push("/");
   };
   return (
-    <header className={styles.header}>
+    <header
+      className={`${styles.header} ${props.disabledClass ? props.disabledClass : ""}`}
+    >
       <svg
         width="79"
         height="29"
@@ -42,12 +47,15 @@ export const Header = () => {
           />
         </defs>
       </svg>
-
-      {userContext.data.name.length > 0 && (
-        <div>
-          Bem vindo, {userContext.data.name} | <button onClick={logout}>Sair</button>
-        </div>
-      )}
+      {userContext.data.name.length > 0 &&
+        window.location.pathname !== "/signUp" && (
+          <div>
+            Bem vindo, <strong> {userContext.data.name.split(" ")[0]}</strong> |{" "}
+            <button onClick={logout}>
+              <LogOut color="#2F2F2F" size={20} className={styles.logoutIcon} />
+            </button>
+          </div>
+        )}
     </header>
   );
 };

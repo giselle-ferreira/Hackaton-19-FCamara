@@ -1,3 +1,6 @@
+.headerDisabled {
+  display: none;
+}
 .container {
   display: flex;
   align-items: stretch;
@@ -23,9 +26,6 @@
       color: #444;
       font-size: 1.68rem;
     }
-    .responsiveLoginButton {
-      display: none;
-    }
   }
 
   main {
@@ -46,74 +46,47 @@
         background: #f8f8f8;
         padding: 2rem 4rem;
         border-radius: 0.875rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
         h2 {
           font-size: 1.5rem;
-          margin: 2rem 0 1.5rem;
+
           text-align: center;
           font-family: sans-serif;
           color: #444;
         }
-
         input {
           margin-top: 0.875rem;
         }
-        .loginButtonForgetPasswordArea {
-          display: flex;
-          margin-top: 1rem;
-
-         
-          .disabledButton 
-          {
-            padding: 0.375rem 0.5rem;
-            opacity: 0.8;
-          }
-          .forgetPassword {
-            display: block;
-            text-align: right;
-            font-size: 0.625rem;
-            color: #444;
-            margin-left: 1.5rem;
-          }
+        a {
+          font-size: 0.875rem;
         }
-        .firstAccessArea {
-          font-weight: 300;
-          font-size: 0.75rem;
-          text-align: center;
+        .disabledButton {
+          padding: 0.375rem 0.5rem;
+          opacity: 0.8;
         }
       }
     }
   }
 }
-
 @media (max-width: 850px) {
+  .headerDisabled {
+    display: flex;
+  }
   .container {
     flex-direction: column;
     aside {
-      min-height: 100vh;
-      width: 100%;
-      .responsiveLoginButton {
-        display: block;
-        padding: 0.5rem;
-        width: 30%;
-        border-radius: 0.875rem;
-        border: none;
-        background: #8c388c;
-        margin-top: 1.5rem;
-        color: #ececec;
-      }
-    }
-
-    main {
-      min-height: 100vh;
+      display: none;
     }
   }
 }
 @media (max-width: 500px) {
   .container {
+    flex-direction: column;
     aside {
-      .logo {
-        max-width: 23.5rem;
-      }
+      display: none;
     }
     main {
       margin: 0 auto;
@@ -121,7 +94,7 @@
         align-items: center;
         justify-content: center;
         .form {
-          width: 80%;
+          width: 70%;
           margin: 0;
           padding: 2rem 2.5rem;
         }

@@ -1,75 +1,109 @@
 import { FormEvent, useContext, useState } from "react";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { Link, useHistory } from "react-router-dom";
 import { Input } from "../../components/Input";
 import { UserContext } from "../../Context/UserContext";
 import { api } from "../../services/api";
 import styles from "./styles.module.scss";
 import FCalendarLogo from "../../Assets/Images/logoFCalendar.svg";
+import Loading from "../../components/Loading";
+import { EmailRegexTeste } from "../../services/emailRegexTeste";
+import { Button } from "../../components/Button";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
+
   const userContext = useContext(UserContext);
   const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
+
     try {
-      const response = await api.post(`sessions`, { email, password });
-      const userData = response.data.user;
-      const token = response.data.token;
+      setLoading(true);
 
-      userContext?.storeData({
-        name: userData.name,
-        email: userData.email,
-        id: userData.id,
-      });
-      window.localStorage.setItem("fcalendartoken", token);
+      if (EmailRegexTeste(email)) {
+        const response = await api.post(`sessions`, { email, password });
+        const userData = response.data.user;
+        const token = response.data.token;
 
-      history.push("/home");
+        userContext?.storeData({
+          name: userData.name,
+          email: userData.email,
+          id: userData.id,
+        });
+        window.localStorage.setItem("fcalendartoken", token);
+
+        history.push("/home");
+      } else {
+        return toast.error("Digite um email válido para prosseguir!");
+      }
     } catch {
       toast.error("Senha ou email inválidos!");
+    } finally {
+      setLoading(false);
     }
   };
   return (
-    <div className={styles.container}>
-      <aside>
-        <img src={FCalendarLogo} alt="logo FCalendar" className={styles.logo} />
-        <h2>Programe e organize sua rotina de trabalho em poucos cliques!</h2>
-      </aside>
-      <main>
-        <div className={styles.mainContent}>
-          <form className={styles.form} onSubmit={handleLogin}>
-            <h2>Login</h2>
-            <Input
-              id={"email"}
-              type={"email"}
-              setValue={setEmail}
-              value={email}
-              placeholder={"email"}
-              required
-            />
-            <Input
-              id={"password"}
-              type={"password"}
-              setValue={setPassword}
-              value={password}
-              placeholder={"senha"}
-              required
-            />
-            <div className={styles.loginButtonForgetPasswordArea}>
-              <button type="submit">Entrar</button>
-              <Link to="#" className={styles.forgetPassword}>
-                {" "}
-                esqueceu a sua senha?
-              </Link>
-            </div>
-            <br />
-            <p className={styles.firstAccessArea}>
-              Primeiro Acesso? <Link to="/signUp">Cadastre-se!</Link>
-            </p>
-          </form>
-        </div>
-      </main>
-    </div>
+    <>
+      <div className={styles.container}>
+        <aside>
+          <img
+            src={FCalendarLogo}
+            alt="logo FCalendar"
+            className={styles.logo}
+          />
+          <h2>Programe e organize sua rotina de trabalho em poucos cliques!</h2>
+          <button
+            className={styles.responsiveLoginButton}
+            onClick={() => (window.location.href = `#form`)}
+          >
+            Login
+          </button>
+        </aside>
+        <main>
+          <div className={styles.mainContent}>
+            <form id="form" className={styles.form} onSubmit={handleLogin}>
+              <h2>Login</h2>
+              <Input
+                id={"email"}
+                type={"email"}
+                setValue={setEmail}
+                value={email}
+                placeholder={"email"}
+                required
+              />
+              <Input
+                id={"password"}
+                type={"password"}
+                setValue={setPassword}
+                value={password}
+                placeholder={"senha"}
+                required
+              />
+              <div className={styles.loginButtonForgetPasswordArea}>
+                {!loading ? (
+                  <Button>Entrar</Button>
+                ) : (
+                  <Button disabledClass={styles.disabledButton} disabled>
+                    <Loading />
+                  </Button>
+                )}
+                <Link to="#" className={styles.forgetPassword}>
+                  {" "}
+                  esqueceu a sua senha?
+                </Link>
+              </div>
+              <br />
+              <p className={styles.firstAccessArea}>
+                Primeiro Acesso? <Link to="/signUp">Cadastre-se!</Link>
+              </p>
+            </form>
+          </div>
+        </main>
+      </div>
+      <Toaster position="top-center" reverseOrder={false} />
+    </>
   );
 };
