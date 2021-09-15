@@ -7,13 +7,8 @@ import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
 import { formatDate } from "../../utils/formatDate";
 
-//Current Scheduling
-import localizacaoIcon from "../../Assets/Images/localizacao.svg";
-import cancelSchedulingIcon from "../../Assets/Images/cancelScheduling.svg";
-import tableIcon from "../../Assets/Images/tableIcon.svg";
-import personIcon from "../../Assets/Images/personIcon.svg";
-import viewDivIcon from "../../Assets/Images/viewDivIcon.svg";
-import closeDivIcon from "../../Assets/Images/closeDivIcon.svg";
+import Modal from "react-modal";
+import "./modal.scss";
 
 /* pagination buttons icons */
 import firstPageButton from "../../Assets/Images/firstPageButton.svg";
@@ -22,6 +17,7 @@ import previousPageButton from "../../Assets/Images/previousPageButton.svg";
 import lastPageButton from "../../Assets/Images/lastPageButton.svg";
 import { LatestScheduling } from "../../components/LatestScheduling";
 import { formatDateGetOfWeek } from "../../utils/formatDateGetOfWeek";
+import toast, { Toaster } from "react-hot-toast";
 
 type schedulingData = {
   id: number;
@@ -69,23 +65,22 @@ export const Home = () => {
   };
 
   const loadLatestScheduling = async () => {
-    const response = await api.get(`scheduling/user`, {
+    const response = await api.get(`/scheduling/last/user`, {
       headers: { Authorization: "Bearer " + token },
     }); // by the default this route uses the page 1
-    const lastThreeSchedulings = response.data;
-    // if the array length is bigger than 3 it sets the array size to 3
-    if (lastThreeSchedulings.length > 3) lastThreeSchedulings.length = 3;
-    setLatestScheduling(lastThreeSchedulings);
+
+    setLatestScheduling(response.data);
   };
-  console.log(latestScheduling);
 
   useEffect(() => {
     handlePagination();
     loadSchedulingHistory();
   }, [page]);
+
   useEffect(() => {
     loadLatestScheduling();
   }, []);
+
   // pagination functions
   const handleFirstPage = () => {
     setPage(1);
@@ -107,6 +102,38 @@ export const Home = () => {
     setPage(lastPage);
   };
 
+  // delete Scheduling
+  const [deleteSchedulingId, setDeleteSchedulingId] = useState(0);
+  const [buttonModalDisable, setButtonModalDisable] = useState(false);
+  const handleDeleteScheduling = async (id: number) => {
+    try {
+      setButtonModalDisable(true);
+      const response = await api.delete(`scheduling/${id}`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+      await loadLatestScheduling();
+      
+      toast.success("Seu agendamento foi cancelado com sucesso!");
+    } catch {
+      toast.error("Não foi possível cancelar o seu agendamento!");
+    }
+    finally {
+      setButtonModalDisable(false);
+      handleCloseConfirmationModal();
+    }
+  };
+  
+  /* Modal */
+  const [confirmationModal, setConfirmationModal] = useState(false);
+  const handleOpenConfirmationModal = (schedulingId: number) => {
+    setConfirmationModal(true);
+    setDeleteSchedulingId(schedulingId);
+  };
+  const handleCloseConfirmationModal = () => {
+    setConfirmationModal(false);
+  };
   return (
     <>
       <Header />
@@ -184,6 +211,8 @@ export const Home = () => {
                   dayOfWeek={formatDateGetOfWeek(data.date)}
                   sector={data.sector}
                   scheduledPeople={"60"}
+                  setModal={handleOpenConfirmationModal}
+                  id={data.id}
                 />
               );
             })}
@@ -212,7 +241,47 @@ export const Home = () => {
           </div>
         </div>
       </main>
+      <Modal
+        isOpen={confirmationModal}
+        onRequestClose={handleCloseConfirmationModal}
+        className="Modal"
+        overlayClassName="Overlay"
+      >
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M3 5.99988H5H21"
+            stroke="#737380"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M8 5.99988V3.99988C8 3.46944 8.21071 2.96074 8.58579 2.58566C8.96086 2.21059 9.46957 1.99988 10 1.99988H14C14.5304 1.99988 15.0391 2.21059 15.4142 2.58566C15.7893 2.96074 16 3.46944 16 3.99988V5.99988M19 5.99988V19.9999C19 20.5303 18.7893 21.039 18.4142 21.4141C18.0391 21.7892 17.5304 21.9999 17 21.9999H7C6.46957 21.9999 5.96086 21.7892 5.58579 21.4141C5.21071 21.039 5 20.5303 5 19.9999V5.99988H19Z"
+            stroke="#737380"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+
+        <h2>Excluir Agendamento</h2>
+        <p>Tem certeza que você deseja o agendamento?</p>
+
+        <div className="confirmArea">
+          <button type="button" onClick={handleCloseConfirmationModal} disabled={buttonModalDisable}>
+            Cancelar
+          </button>
+          <button
+            type="button"
+            onClick={() => handleDeleteScheduling(deleteSchedulingId)}
+            disabled={buttonModalDisable}
+          >
+            Sim, Excluir
+          </button>
+        </div>
+      </Modal>
       <Footer />
+      <Toaster position="top-center" reverseOrder={false} />
     </>
   );
 };

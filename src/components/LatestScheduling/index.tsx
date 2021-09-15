@@ -8,14 +8,16 @@ import viewDivIcon from "../../Assets/Images/viewDivIcon.svg";
 import closeDivIcon from "../../Assets/Images/closeDivIcon.svg";
 
 type LatestSchedulingProps = {
+  id: number;
   dayOfWeek: string;
   date: string;
   office: number;
   table: string;
   sector: string;
   scheduledPeople: string;
+  setModal: (id: number) => void;
 };
-export const LatestScheduling = (props: LatestSchedulingProps) => {
+export const LatestScheduling = ({ setModal, ...props}: LatestSchedulingProps) => {
   const [expandDiv, setExpandDiv] = useState(false);
   return (
     <>
@@ -24,17 +26,20 @@ export const LatestScheduling = (props: LatestSchedulingProps) => {
           !expandDiv ? "" : styles.agendamentoExpanded
         }`}
       >
-        <h2>{props.dayOfWeek}, {props.date}</h2>
+        <h2>
+          {props.dayOfWeek}, {props.date}
+        </h2>
         <h3>
           <img src={localizacaoIcon} />
-          {props.office === 1 ? 'São Paulo' : 'Santos'}
+          {props.office === 1 ? "São Paulo" : "Santos"}
         </h3>
         <h3>
           <img src={tableIcon} />
           Mesa {props.table} | Setor {props.sector}
         </h3>
         <h3>
-          <img src={personIcon} />{props.scheduledPeople} Pessoas agendadas
+          <img src={personIcon} />
+          {props.scheduledPeople} Pessoas agendadas
         </h3>
       </div>
 
@@ -51,7 +56,7 @@ export const LatestScheduling = (props: LatestSchedulingProps) => {
           )}
         </h5>
         <h5>
-          <a href="#">
+          <a onClick={() => setModal(props.id)}>
             <img src={cancelSchedulingIcon} />
             Cancelar Agendamento
           </a>
