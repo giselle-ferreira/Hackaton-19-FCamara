@@ -41,7 +41,7 @@ main {
 .main .historico .board {
   margin-top: 10px;
   width: 330px;
-  height: 240px;
+  max-height: 240px;
   background: #fefefe;
   border: 1.5px solid #e5e5e5;
   border-radius: 17px;
@@ -64,15 +64,14 @@ main {
   background: #990099;
   font-weight: 600;
   height: 42px;
-  tr
-  {
+  tr {
     th:nth-child(1) {
       border-top-left-radius: 17px;
-  }
-  
-  th:nth-last-child(1) {
-    border-top-right-radius: 17px;
-  }
+    }
+
+    th:nth-last-child(1) {
+      border-top-right-radius: 17px;
+    }
   }
 }
 
@@ -97,13 +96,17 @@ main {
 .main .historico .board .pages a {
   font-family: "Work Sans", sans-serif;
   padding: 2.5px;
-  font-size: 16px;
+  font-size: 1.2rem;
   font-weight: 500;
 }
 
 .main .historico .board .pages {
   margin: 10px 30px;
   font-family: "Work Sans", sans-serif;
+  .selectedPage {
+    color: #990099;
+    text-decoration: underline;
+  }
 }
 
 .pages a {
@@ -253,23 +256,23 @@ main {
       rgba(153, 0, 153, 0.55)
     ),
     url("../../Assets/Images/santos.jpg");
-    background-size: cover;
-    background-position: center;
+  background-size: cover;
+  background-position: center;
 }
 
 .btnSp {
   width: 100%;
   height: 79px;
-      background: linear-gradient(
+  background: linear-gradient(
       0deg,
       rgba(153, 0, 153, 0.55),
       rgba(153, 0, 153, 0.55)
-      ),
-      url("../../Assets/Images/saopaulo.jpg");
-      background-position: 100% 20%;
-      background-size: cover;
-      background-repeat: no-repeat;
-      margin-top: 28px;
+    ),
+    url("../../Assets/Images/saopaulo.jpg");
+  background-position: 100% 20%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 28px;
 }
 
 .btnSantos:hover,

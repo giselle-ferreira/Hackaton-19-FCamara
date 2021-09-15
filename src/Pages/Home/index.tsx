@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../Context/UserContext";
 import { api } from "../../services/api";
 import { Footer } from "../Footer";
@@ -7,13 +7,88 @@ import styles from "./styles.module.scss";
 
 import visualizarImg from "../../Assets/Images/visualizar.svg";
 import cancelSchedulingIcon from "../../Assets/Images/cancelScheduling.svg";
-import localizacaoIcon from '../../Assets/Images/localizacao.svg';
+import localizacaoIcon from "../../Assets/Images/localizacao.svg";
+import { Link } from "react-router-dom";
+import { formatDate } from "../../services/formatDate";
+
+/* pagination buttons icons */
+import firstPageButton from "../../Assets/Images/firstPageButton.svg";
+import nextPageButton from "../../Assets/Images/nextPageButton.svg";
+import previousPageButton from "../../Assets/Images/previousPageButton.svg";
+import lastPageButton from "../../Assets/Images/lastPageButton.svg";
+
+type schedulingData = {
+  id: number;
+  office: number;
+  sector: string;
+  seat: string;
+  date: Date;
+};
+
 export const Home = () => {
   const userContext = useContext(UserContext);
+  const token = window.localStorage.getItem("fcalendartoken");
+  const [schedulingData, setSchedulingData] = useState<schedulingData[]>([]);
+
+  /* pagination states  */
+  const [page, setPage] = useState(1);
+  const [lastPage, setLastPage] = useState(1);
+  const [numberOfPages, setNumberOfPages] = useState<number[]>();
+
+  const handlePagination = async () => {
+    const response = await api.get(`scheduling/all/user`, {
+      headers: { Authorization: "Bearer " + token },
+    });
+    const pagesCalc = Math.ceil(response.data.length / 5);
+    const pages = [];
+    for (var i = 0; i < pagesCalc; i++) {
+      pages.push(i);
+    }
+
+    setLastPage(pagesCalc);
+
+    return setNumberOfPages(pages);
+  };
+
+  const loadSchedulingHistory = async () => {
+    const response = await api.get(`scheduling/user?page=${page}`, {
+      headers: { Authorization: "Bearer " + token },
+    });
+
+    setSchedulingData(response.data);
+  };
+
+  useEffect(() => {
+    handlePagination();
+    loadSchedulingHistory();
+  }, [page]);
+
+  // pagination functions
+  const handleFirstPage = () => {
+    setPage(1);
+  };
+  const handleDecreasePagination = () => {
+    if (page >= 2) {
+      setPage(page - 1);
+    }
+  };
+  const handlePageSelect = (pageNumber: number) => {
+    setPage(pageNumber);
+  };
+  const handleIncreasePagination = () => {
+    if (page < lastPage) {
+      setPage(page + 1);
+    }
+  };
+  const handleLastPage = () => {
+    setPage(lastPage);
+  };
+
   return (
     <>
       <Header />
       <main>
+        {page}
         {/* <!-- Título Geral --> */}
         <div className={styles.titulo}>
           <h1>Pronto pra se planejar hoje?</h1>
@@ -24,15 +99,7 @@ export const Home = () => {
           <div className={styles.historico}>
             <h1>HISTÓRICO</h1>
             <div className={styles.board}>
-              <table>
-                {/* <!-- <div className="table-title">
-               <thead>
-                  <tr>
-                    <th>Data</th>
-                    <th>Estação de<br>Trabalho</th>
-                  </tr>
-                </thead> -->
-              </div>  */}
+              <table cellSpacing="0">
                 <thead className={styles.tableTitle}>
                   <tr>
                     <th>Data</th>
@@ -41,63 +108,46 @@ export const Home = () => {
                 </thead>
 
                 <tbody className={styles.tableBody}>
-                  <tr>
-                    <td>DD/MM/YYYY</td>
-                    <td>XX - Setor X</td>
-                  </tr>
-                  <tr>
-                    <td>DD/MM/YYYY</td>
-                    <td>XX - Setor X</td>
-                  </tr>
-                  <tr>
-                    <td>DD/MM/YYYY</td>
-                    <td>XX - Setor X</td>
-                  </tr>
-                  <tr>
-                    <td>DD/MM/YYYY</td>
-                    <td>XX - Setor X</td>
-                  </tr>
-                  <tr>
-                    <td>DD/MM/YYYY</td>
-                    <td>XX - Setor X</td>
-                  </tr>
+                  {schedulingData.map((data) => {
+                    return (
+                      <tr key={data.id}>
+                        <td>{formatDate(data.date)}</td>
+                        <td>
+                          {data.seat} - Setor {data.sector}{" "}
+                          {data.office === 1 ? "(SP)" : "(SA)"}
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
-            <div className={styles.pages}>
-              <a href="#">
-                <svg
-                  width="16"
-                  height="7"
-                  viewBox="0 0 16 7"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.672 0.624L2.688 3.76L4.672 6.896H2.656L0.656 3.76L2.656 0.624H4.672ZM8.16 0.624L6.176 3.76L8.16 6.896H6.144L4.144 3.76L6.144 0.624H8.16ZM15.6708 0.624L13.6867 3.76L15.6708 6.896H13.6547L11.6547 3.76L13.6547 0.624H15.6708Z"
-                    fill="#B1B1B1"
-                  />
-                </svg>
-              </a>{" "}
-              <a href="#">1</a> <a href="#">2</a> <a href="#">3</a>{" "}
-              <a href="#">4</a> <a href="#">5</a> <a href="#">6</a>{" "}
-              <a href="#">
-                {" "}
-                <svg
-                  width="16"
-                  height="7"
-                  viewBox="0 0 16 7"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0.656 6.896L2.64 3.76L0.656 0.624H2.672L4.672 3.76L2.672 6.896H0.656ZM11.6588 6.896L13.6427 3.76L11.6588 0.624H13.6747L15.6748 3.76L13.6747 6.896H11.6588ZM8.17075 6.896L10.1547 3.76L8.17075 0.624H10.1867L12.1867 3.76L10.1867 6.896H8.17075Z"
-                    fill="#B1B1B1"
-                  />
-                </svg>
-              </a>
+              <div className={styles.pages}>
+                <a onClick={handleFirstPage}>
+                  <img src={firstPageButton} alt="" />
+                </a>{" "}
+                <a onClick={handleDecreasePagination}>
+                  <img src={previousPageButton} alt="" />
+                </a>{" "}
+                {numberOfPages?.map((pageNumber) => {
+                  return (
+                    <a
+                      onClick={() => handlePageSelect(pageNumber + 1)}
+                      className={`${
+                        page === pageNumber + 1 ? styles.selectedPage : ""
+                      }`}
+                    >
+                      {pageNumber + 1}
+                    </a>
+                  );
+                })}
+                <a onClick={handleIncreasePagination}>
+                  <img src={nextPageButton} alt="" />
+                </a>{" "}
+                <a onClick={handleLastPage}>
+                  <img src={lastPageButton} alt="" />
+                </a>{" "}
+              </div>
             </div>
-            </div>
-           
           </div>
 
           {/* <!-- agendamentos atuais --> */}
@@ -131,19 +181,19 @@ export const Home = () => {
             <h5>Selecione um escritório para prosseguir</h5>
             <div className={styles.botoes}>
               <div>
-                <a href="#">
+                <Link to="/scheduling/1">
                   <button className={`${styles.btnSantos} ${styles.button}`}>
                     Santos
                   </button>
-                </a>
+                </Link>
               </div>
 
               <div>
-                <a href="#">
+                <Link to="/scheduling/2">
                   <button className={`${styles.btnSp} ${styles.button}`}>
                     São Paulo
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
