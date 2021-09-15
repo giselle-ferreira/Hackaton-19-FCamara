@@ -1,0 +1,56 @@
+.agendamento {
+  flex-direction: column;
+  margin-top: 10px;
+  max-width: 320px;
+  max-height: 3.75rem;
+  background: #fefefe;
+  border: solid #e5e5e5 1.5px;
+  border-radius: 1.1rem;
+  overflow: hidden;
+  padding-bottom: 0.5rem;
+  font-family: "Work Sans", sans-serif;
+  h2 {
+    margin: 14px 61px 0 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #990099;
+    line-height: 29px;
+  }
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 300;
+    color: #5a5a5a;
+    margin-bottom: 0.2rem;
+    img {
+      margin: 0 10px 0 12px;
+      color: #b1b1b1;
+      height: 18px;
+      width: auto;
+    }
+  }
+
+  &.agendamentoExpanded {
+    max-height: 7rem !important;
+  }
+}
+.visualEdit {
+  display: inline-flex;
+  margin: 4px 0 0 18px;
+  h5 {
+    margin-right: 27px;
+    font: 500 15px/17.6px "Work Sans", sans-serif;
+    color: #b1b1b1;
+  }
+  a {
+    text-decoration: none;
+    color: #6699CC;
+  }
+  img {
+    margin-right: 4px;
+    color: #b1b1b1;
+    height: 15px;
+    width: auto;
+    align-items: center;
+    vertical-align: middle;
+  }
+}

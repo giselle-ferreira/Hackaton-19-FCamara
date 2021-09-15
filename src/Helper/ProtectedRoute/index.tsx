@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect, Route, RouteProps } from "react-router";
-import { checkToken } from "../../services/checkToken";
+import { checkToken } from "../../utils/checkToken";
 
 
 const ProtectedRoute = (props: RouteProps) => {

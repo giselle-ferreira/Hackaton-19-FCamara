@@ -4,18 +4,24 @@ import { api } from "../../services/api";
 import { Footer } from "../Footer";
 import { Header } from "../Header";
 import styles from "./styles.module.scss";
-
-import visualizarImg from "../../Assets/Images/visualizar.svg";
-import cancelSchedulingIcon from "../../Assets/Images/cancelScheduling.svg";
-import localizacaoIcon from "../../Assets/Images/localizacao.svg";
 import { Link } from "react-router-dom";
-import { formatDate } from "../../services/formatDate";
+import { formatDate } from "../../utils/formatDate";
+
+//Current Scheduling
+import localizacaoIcon from "../../Assets/Images/localizacao.svg";
+import cancelSchedulingIcon from "../../Assets/Images/cancelScheduling.svg";
+import tableIcon from "../../Assets/Images/tableIcon.svg";
+import personIcon from "../../Assets/Images/personIcon.svg";
+import viewDivIcon from "../../Assets/Images/viewDivIcon.svg";
+import closeDivIcon from "../../Assets/Images/closeDivIcon.svg";
 
 /* pagination buttons icons */
 import firstPageButton from "../../Assets/Images/firstPageButton.svg";
 import nextPageButton from "../../Assets/Images/nextPageButton.svg";
 import previousPageButton from "../../Assets/Images/previousPageButton.svg";
 import lastPageButton from "../../Assets/Images/lastPageButton.svg";
+import { LatestScheduling } from "../../components/LatestScheduling";
+import { formatDateGetOfWeek } from "../../utils/formatDateGetOfWeek";
 
 type schedulingData = {
   id: number;
@@ -29,11 +35,15 @@ export const Home = () => {
   const userContext = useContext(UserContext);
   const token = window.localStorage.getItem("fcalendartoken");
   const [schedulingData, setSchedulingData] = useState<schedulingData[]>([]);
-
+  const [latestScheduling, setLatestScheduling] = useState<schedulingData[]>(
+    []
+  );
   /* pagination states  */
   const [page, setPage] = useState(1);
   const [lastPage, setLastPage] = useState(1);
   const [numberOfPages, setNumberOfPages] = useState<number[]>();
+
+  /*Expanding div */
 
   const handlePagination = async () => {
     const response = await api.get(`scheduling/all/user`, {
@@ -58,11 +68,24 @@ export const Home = () => {
     setSchedulingData(response.data);
   };
 
+  const loadLatestScheduling = async () => {
+    const response = await api.get(`scheduling/user`, {
+      headers: { Authorization: "Bearer " + token },
+    }); // by the default this route uses the page 1
+    const lastThreeSchedulings = response.data;
+    // if the array length is bigger than 3 it sets the array size to 3
+    if (lastThreeSchedulings.length > 3) lastThreeSchedulings.length = 3;
+    setLatestScheduling(lastThreeSchedulings);
+  };
+  console.log(latestScheduling);
+
   useEffect(() => {
     handlePagination();
     loadSchedulingHistory();
   }, [page]);
-
+  useEffect(() => {
+    loadLatestScheduling();
+  }, []);
   // pagination functions
   const handleFirstPage = () => {
     setPage(1);
@@ -88,7 +111,6 @@ export const Home = () => {
     <>
       <Header />
       <main>
-        {page}
         {/* <!-- Título Geral --> */}
         <div className={styles.titulo}>
           <h1>Pronto pra se planejar hoje?</h1>
@@ -153,27 +175,18 @@ export const Home = () => {
           {/* <!-- agendamentos atuais --> */}
           <div className={styles.agendamentosAtuais}>
             <h1>AGENDAMENTOS ATUAIS</h1>
-            <div className={styles.agendamento1}>
-              <h2>Sexta-feira, 10/09/21</h2>
-              <h3>
-                <img src={localizacaoIcon} />
-                São Paulo
-              </h3>
-            </div>
-
-            <div className={styles.visualEdit}>
-              <h5>
-                <a href="#">
-                  <img src={visualizarImg} /> Visualizar
-                </a>
-              </h5>
-              <h5>
-                <a href="#">
-                  <img src={cancelSchedulingIcon} />
-                  Cancelar Agendamento
-                </a>
-              </h5>
-            </div>
+            {latestScheduling.map((data) => {
+              return (
+                <LatestScheduling
+                  date={formatDate(data.date)}
+                  office={data.office}
+                  table={data.seat.toString()}
+                  dayOfWeek={formatDateGetOfWeek(data.date)}
+                  sector={data.sector}
+                  scheduledPeople={"60"}
+                />
+              );
+            })}
           </div>
           {/* <!-- novo agendamento --> */}
           <div className={styles.novoAgendamento}>

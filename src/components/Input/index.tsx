@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, useState } from "react";
-import { EmailRegexTeste } from "../../services/emailRegexTeste";
+import { EmailRegexTeste } from "../../utils/emailRegexTeste";
 import styles from "./styles.module.scss";
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string;

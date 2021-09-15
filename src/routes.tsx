@@ -7,7 +7,7 @@ import { NotFound } from "./Pages/NotFound";
 import { ForgotPassword } from "./Pages/ForgotPassword";
 import { ResetPassword } from "./Pages/ResetPassword";
 import ProtectedRoute from "./Helper/ProtectedRoute";
-import { checkToken } from "./services/checkToken";
+import { checkToken } from "./utils/checkToken";
 export const Routes = () => {
   return (
     <BrowserRouter>

@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
 import FCalendarLogo from "../../Assets/Images/logoFCalendar.svg";
 import { Input } from "../../components/Input";
 import { FormEvent, useState } from "react";
-import { EmailRegexTeste } from "../../services/emailRegexTeste";
+import { EmailRegexTeste } from "../../utils/emailRegexTeste";
 import { api } from "../../services/api";
 import { Header } from "../Header";
 import { Footer } from "../Footer";

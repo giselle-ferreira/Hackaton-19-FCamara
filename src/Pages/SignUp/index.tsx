@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
 import Loading from "../../components/Loading";
-import { EmailRegexTeste } from "../../services/emailRegexTeste";
+import { EmailRegexTeste } from "../../utils/emailRegexTeste";
 import { Button } from "../../components/Button";
 
 export const SignUp = () => {

@@ -7,7 +7,7 @@ import { api } from "../../services/api";
 import styles from "./styles.module.scss";
 import FCalendarLogo from "../../Assets/Images/logoFCalendar.svg";
 import Loading from "../../components/Loading";
-import { EmailRegexTeste } from "../../services/emailRegexTeste";
+import { EmailRegexTeste } from "../../utils/emailRegexTeste";
 import { Button } from "../../components/Button";
 export const Login = () => {
   const [email, setEmail] = useState("");

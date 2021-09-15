@@ -21,15 +21,12 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: baseline;
   margin-top: 31px;
-}
-
-.main .historico {
-  font-size: 12px;
-  justify-content: center;
+  font-size: 0.875rem;
   text-align: center;
 }
+
 
 .main .historico h1 {
   font: 600 18px "Spartan", sans-serif;
@@ -141,71 +138,6 @@ main {
   font-weight: 600;
   margin-top: 31px;
   color: #2f2f2f;
-}
-
-.main .agendamentosAtuais .agendamento1,
-.main .agendamentosAtuais .agendamento2 {
-  flex-direction: column;
-  margin-top: 10px;
-  width: 330px;
-  height: 83px;
-  background: #fefefe;
-  border: solid #e5e5e5 1.5px;
-  border-radius: 17px;
-  font-family: "Work Sans", sans-serif;
-}
-
-.main .agendamentosAtuais .agendamento1 h2,
-.main .agendamentosAtuais .agendamento2 h2 {
-  margin: 14px 61px 0 15px;
-  font-size: 24px;
-  font-weight: 500;
-  color: #990099;
-  line-height: 29px;
-}
-
-.main .agendamentosAtuais .agendamento1 h3,
-.main .agendamentosAtuais .agendamento2 h3 {
-  font-size: 18px;
-  font-weight: 300;
-  color: #5a5a5a;
-}
-
-.main .agendamentosAtuais .agendamento1 h3 img,
-.main .agendamentosAtuais .agendamento2 h3 img {
-  margin: 0 10px 0 12px;
-  color: #b1b1b1;
-  height: 18px;
-  width: auto;
-}
-
-.main .agendamentosAtuais .agendamento2 {
-  margin-top: 28px;
-}
-
-.main .agendamentosAtuais .visualEdit {
-  display: inline-flex;
-  margin: 4px 0 0 18px;
-}
-
-.main .agendamentosAtuais .visualEdit h5 {
-  margin-right: 27px;
-  font: 500 15px/17.6px "Work Sans", sans-serif;
-  color: #b1b1b1;
-}
-
-.main .agendamentosAtuais .visualEdit a {
-  text-decoration: none;
-  color: #b1b1b1;
-}
-
-.visualEdit img {
-  margin-right: 4px;
-  color: #b1b1b1;
-  height: 15px;
-  width: auto;
-  align-items: center;
-  vertical-align: middle;
 }
 
 /*----------------- Novo Agendamento -----------------*/
