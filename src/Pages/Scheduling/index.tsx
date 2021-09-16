@@ -25,6 +25,7 @@ type paramsProps = {
   id: string;
 };
 export const Scheduling = () => {
+  const [loading, setLoading] = useState(false);
   const token = checkToken();
   const spSectors = [1, 2, 3, 4];
   const sanSectors = [1, 2];
@@ -57,7 +58,7 @@ export const Scheduling = () => {
           })
           .then((response) => {
             setScheduledPeople(response.data.length);
-            if (office === "1" && response.data.length == 2) {
+            if (office === "1" && response.data.length == 240) {
               toast.error(
                 "Dia com capacidade máxima! Não será possível Agendar."
               );
@@ -209,7 +210,11 @@ export const Scheduling = () => {
                   </select>
                 </label>
               </div>
-              <div className={styles.mapArea}>
+              <div
+                className={`${styles.mapArea} ${
+                  seat.length < 1 ? styles.mapAreaOpacity : ""
+                }`}
+              >
                 {office === "1" ? (
                   <img src={spMap} alt="Mapa São Paulo" />
                 ) : (
@@ -220,7 +225,11 @@ export const Scheduling = () => {
                 className={styles.schedulingButtonArea}
                 onSubmit={handleCreateAScheduling}
               >
-                <button type="submit">
+                <button
+                  type="submit"
+                  className={`${seat.length < 1 ? styles.buttonOpacity : ""}`}
+                  disabled={seat.length < 1}
+                >
                   <img src={confirmButton} alt="" />
                   <br />
                   Agendar
