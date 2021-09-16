@@ -11,18 +11,23 @@ import { EmailRegexTeste } from "../../utils/emailRegexTeste";
 import { api } from "../../services/api";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
+import { useHistory } from "react-router-dom";
 
 export const ForgotPassword = () => {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
-  const handleForgotPassword = (e: FormEvent) => {
+  const handleForgotPassword = async (e: FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      setLoading(true);
       if (EmailRegexTeste(email)) {
-        api.post("forgotpassword", {
+        await api.post("users/forgotpassword", {
           email,
         });
+        toast.success("Link para alteração de senha enviado para o email!");
+
+        setTimeout(() => history.push("/"), 2000);
       } else {
         throw new Error();
       }
@@ -79,6 +84,7 @@ export const ForgotPassword = () => {
         </main>
       </div>
       <Toaster position="top-center" reverseOrder={false} />
+      <Footer />
     </>
   );
 };

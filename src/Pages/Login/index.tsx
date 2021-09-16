@@ -90,7 +90,7 @@ export const Login = () => {
                     <Loading />
                   </Button>
                 )}
-                <Link to="#" className={styles.forgetPassword}>
+                <Link to="/forgotPassword" className={styles.forgetPassword}>
                   {" "}
                   esqueceu a sua senha?
                 </Link>

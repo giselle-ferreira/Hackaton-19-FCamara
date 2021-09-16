@@ -21,8 +21,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 import previousPageMobile from "../../Assets/Images/previousPageMobile.svg";
 import nextPageMobile from "../../Assets/Images/nextPageMobile.svg";
-import { FormatDateToBackend } from "../../utils/formatDateToBackend";
-import tr from "date-fns/esm/locale/tr/index.js";
+
 
 type schedulingData = {
   id: number;
@@ -33,7 +32,7 @@ type schedulingData = {
 };
 
 export const Home = () => {
-  const userContext = useContext(UserContext);
+  // const userContext = useContext(UserContext);
   const token = window.localStorage.getItem("fcalendartoken");
   const [schedulingData, setSchedulingData] = useState<schedulingData[]>([]);
   const [latestScheduling, setLatestScheduling] = useState<schedulingData[]>(
@@ -186,39 +185,48 @@ export const Home = () => {
                 </tbody>
               </table>
               <div className={styles.pages}>
-                <a onClick={handleFirstPage}>
-                  <img src={firstPageButton} alt="" />
-                </a>{" "}
-                <a onClick={handleDecreasePagination}>
-                  <img src={previousPageButton} alt="" />
-                </a>{" "}
+                <button onClick={handleFirstPage}>
+                  <img src={firstPageButton} alt="Botão Primeira Paginação" />
+                </button>{" "}
+                <button onClick={handleDecreasePagination}>
+                  <img
+                    src={previousPageButton}
+                    alt="Botão Paginação Anterior"
+                  />
+                </button>{" "}
                 {numberOfPages?.map((pageNumber) => {
                   return (
-                    <a
+                    <button
                       onClick={() => handlePageSelect(pageNumber + 1)}
                       className={`${
                         page === pageNumber + 1 ? styles.selectedPage : ""
                       }`}
                     >
                       {pageNumber + 1}
-                    </a>
+                    </button>
                   );
                 })}
-                <a onClick={handleIncreasePagination}>
-                  <img src={nextPageButton} alt="" />
-                </a>{" "}
-                <a onClick={handleLastPage}>
-                  <img src={lastPageButton} alt="" />
-                </a>{" "}
+                <button onClick={handleIncreasePagination}>
+                  <img src={nextPageButton} alt="Botão Próxima Paginação" />
+                </button>{" "}
+                <button onClick={handleLastPage}>
+                  <img
+                    src={lastPageButton}
+                    alt="Botão Última Pagina da Paginação"
+                  />
+                </button>{" "}
               </div>
               <div className={styles.pagesMobile}>
-                <a onClick={handleDecreasePagination}>
-                  <img src={previousPageMobile} alt="" />
-                </a>{" "}
+                <button onClick={handleDecreasePagination}>
+                  <img
+                    src={previousPageMobile}
+                    alt="Botão Paginação Anterior"
+                  />
+                </button>{" "}
                 <p> {page}</p>
-                <a onClick={handleIncreasePagination}>
-                  <img src={nextPageMobile} alt="" />
-                </a>{" "}
+                <button onClick={handleIncreasePagination}>
+                  <img src={nextPageMobile} alt="Botão Próxima Paginação" />
+                </button>{" "}
               </div>
             </div>
           </div>

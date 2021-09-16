@@ -106,18 +106,26 @@ main {
   }
 }
 
-.pages a {
-  font-family: "Work Sans", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  text-decoration: none;
-  color: #b1b1b1;
-}
-
-.pages a img {
-  height: 13px;
-  width: auto;
-  color: #b1b1b1;
+.pages {
+  button {
+    font-family: "Work Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #b1b1b1;
+    background: none;
+    border: none;
+    margin: 0 0.1rem;
+    &:nth-child(3)
+    {
+      margin-right: 0.5rem;
+    }
+    img {
+      height: 13px;
+      width: auto;
+      color: #b1b1b1;
+    }
+  }
 }
 
 .ordenar h4 {
@@ -307,6 +315,10 @@ main {
       font-weight: 700;
       line-height: 21px;
       margin: 0 30px 0 30px;
+    }
+    button {
+      background: none;
+      border: none;
     }
   }
   .pages {
