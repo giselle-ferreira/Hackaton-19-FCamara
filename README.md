@@ -2,7 +2,9 @@
 <h1 align="center">
     <img alt="FCalendar" src="https://i.postimg.cc/rF9byWQm/fcalendar-banner-readme.png" />
 </h1>
-</br>
+
+<br>
+
 
 <p align="center">
 	<a href="#sobre-o-fcalendar">Sobre o FCalendar</a> • 
@@ -12,23 +14,24 @@
 	<a href="#tecnologias">Tecnologias</a> • 
 	<a href="#links-complementares">Links Complementares</a> • 
 	<a href="#quer-contribuir-para-o-projeto">Quer Contribuir para o projeto?</a> •
+	<a href="#instalacao">Instalando o FCalendar</a> •
 	<a href="#licenca">Licença</a> •
 	<a href="#autores">Autores</a> •
 	<a href="#agradecimentos">Agradecimentos</a>
 </p>
 
 
-</br>
+<br>
+<br>
 
-
-## Sobre o FCalendar :spiral_calendar:
+> ## Sobre o FCalendar :spiral_calendar:
 O FCalendar foi desenvolvido para o Hackathon do Programa de Formação do [Grupo FCamara](https://www.fcamara.com.br/).
 Trata-se de um website que ajuda você a programar sua rotina de trabalho. Nele você pode agendar os dias que precisar ir ao escritório. E isso tudo é feito de forma segura, de acordo com as exigências de distanciamento social atuais. Apenas a quantidade segura de pessoas é permitida no local, e se você quiser se sentir mais seguro, nosssa aplicação também te informa a quantidade de pessoas que já estão agendadas para o dia que você escolheu.
 
-</br>
+<br>
+<br>
 
-
-## Funcionalidades ⚙️
+> ## Funcionalidades ⚙️
 
 - [x] Agendamento do dia que você precisa estar no escritório
 - [x] Escolha da sua estação de trabalho
@@ -37,32 +40,33 @@ Trata-se de um website que ajuda você a programar sua rotina de trabalho. Nele 
 - [x] Cancelamento de agendamento
 - [x] A quantidade máxima de estações disponíveis obedece às normais atuais de distanciamento social
 
-
-</br> 
+<br>
+<br>
 
 <p align="center">## Layout 🖼️</p>  
 
 <p align="center">### Mobile 📱</p>
 
 <p align="center">
-  <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/CLpYnhFB/mob-cadastro.png" width="200px">
-  <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/CLnNX0DN/mob-login2.png" width="200px">
-  <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/RFb7ppZy/mob-home.png" width="200px">
-  <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/90Y9Tcnd/mob-agendamento.png" width="200px"> 
+  <img alt="FCalendar" src="https://i.postimg.cc/CLnNX0DN/mob-login2.png" width="200px"> 
+  <img alt="FCalendar" src="https://i.postimg.cc/CLpYnhFB/mob-cadastro.png" width="200px">
+  <img alt="FCalendar" src="https://i.postimg.cc/RFb7ppZy/mob-home.png" width="198px">
+  <img alt="FCalendar" src="https://i.postimg.cc/90Y9Tcnd/mob-agendamento.png" width="200px"> 
 
+	
 <p align="center">### Desktop 🖥️</p>
 
-<p align="center">
-  <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/CLpYnhFB/mob-cadastro.png" width="200px">
-  <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/CLnNX0DN/mob-login2.png" width="200px">
-  <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/RFb7ppZy/mob-home.png" width="200px">
-  <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/90Y9Tcnd/mob-agendamento.png" width="200px"> 
-    
-</br>
-</br>    
-    
 
-## Tecnologias 🧰
+<p align="center">
+  <img alt="FCalendar" src="https://i.postimg.cc/X76PV03W/login.png" height="200px">
+  <img alt="cadastro" src="https://i.postimg.cc/TP3SZqxW/cadastro.png" height="200px">
+  <img alt="home" src="https://i.postimg.cc/d0wNGR3x/home.png" height="200px">
+  <img alt="agendamento" src="https://i.postimg.cc/BvhW67pg/agendamento.png" height="200px">
+
+<br>	
+<br>	
+	
+> ## Tecnologias 🧰
 
 <img align="left" alt="html" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
 <img align="left" alt="css" src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
@@ -80,23 +84,21 @@ Trata-se de um website que ajuda você a programar sua rotina de trabalho. Nele 
 <img align="left" alt="Trello" src="https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white" />
 <img align="left" alt="Maze" src="https://img.shields.io/badge/-MAZE-blue" />
 
+<br>
+<br>
+<br>
 
-
-</br>
-</br>
-
-
-## Links Complementares 🔗
+> ## Links Complementares 🔗
 
 + [Protótipo do Figma](https://www.figma.com/file/xNP9lmoAzlzvyqOWPGhKuh/FCalendar?node-id=175%3A7530)
 + [BrandbookFCalendar](https://mariadantas.notion.site/Brandbook-FCalendar-41fba29b6b994a6dafd0c62636d19d58)
 + [Teste de Usabilidade](https://t.maze.co/53151283)
 
-</br>
+<br>
+<br>
 
-
-## Quer Contribuir para o projeto? 📫 
-Para contribuir com <nome_do_projeto>, siga estas etapas:
+> ## Quer Contribuir para o projeto? 📫 
+Para contribuir com FCalendar, siga estas etapas:
 
 1. Bifurque este repositório.
 2. Crie um branch: `git checkout -b <nome_branch>`.
@@ -106,29 +108,37 @@ Para contribuir com <nome_do_projeto>, siga estas etapas:
 
 Como alternativa, consulte a documentação do GitHub em [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
+<br>
+<br>
 
-</br>
+> ## Instalando o FCalendar 📫 
+Para instalar com FCalendar na sua máquina acesse: [INSTALAÇÃO FCALENDAR](INSTALACAO.md).
 
-## Licença 📜
+<br>
+<br>
+
+> ## Licença 📜
 
 Este projeto está sob licença: [![APM](https://img.shields.io/apm/l/react)](https://github.com/JenniSalum/Hackaton-19-FCamara/blob/main/LICENSE)
 
-</br>
+<br>
+<br>
 
-## Autores 🦸‍♀️🦸‍♂️🦸🦸‍♂️
+> ## Autores 🦸‍♀️🦸‍♂️🦸🦸‍♂️
 
 + David do Carmo Santos - [GitHub](https://github.com/davidscarmo) | [Linkedin](https://www.linkedin.com/in/davidscarmo/)
 + Gabriel Deciomo Martins - [GitHub](https://github.com/gab360rieal) | [Linkedin](https://www.linkedin.com/in/gabriel-deciomo-martins-6468b91b0/)
 + Giselle Ferreira da Silva - [Github](https://github.com/giselle-ferreira) | [Linkedin](www.linkedin.com/in/giselleferreiras)
 + Maria Letícia Dantas - [Linkedin](https://www.linkedin.com/in/leudantas/) | [Medium](https://leudantas.medium.com/)
 
-</br>
+<br>
+<br>
 
+> ## Agradecimentos 🙏
 
-## Agradecimentos 🙏
+Agradecemos ao Grupo FCamara pela oportunidade! 🧡
 
-Agradecemos ao Grupo FCamara pela oportunidade!
-
-</br>
+<br>
+<br>
 
 [⬆ Voltar ao topo](#sobre)<br>
