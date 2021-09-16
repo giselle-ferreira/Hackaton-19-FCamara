@@ -21,6 +21,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 import previousPageMobile from "../../Assets/Images/previousPageMobile.svg";
 import nextPageMobile from "../../Assets/Images/nextPageMobile.svg";
+import { FormatDateToBackend } from "../../utils/formatDateToBackend";
 
 type schedulingData = {
   id: number;
@@ -72,7 +73,12 @@ export const Home = () => {
       headers: { Authorization: "Bearer " + token },
     }); // by the default this route uses the page 1
 
-    setLatestScheduling(response.data);
+    const lastFiveSchedulings = response.data;
+
+    // if the array length is bigger than 3 it sets the array size to 3
+    if (lastFiveSchedulings.length > 5) lastFiveSchedulings.length = 5;
+
+    setLatestScheduling(lastFiveSchedulings);
   };
 
   useEffect(() => {
@@ -217,11 +223,11 @@ export const Home = () => {
               return (
                 <LatestScheduling
                   date={formatDate(data.date)}
+                  dateToBack={data.date}
                   office={data.office}
                   table={data.seat.toString()}
                   dayOfWeek={formatDateGetOfWeek(data.date)}
                   sector={data.sector}
-                  scheduledPeople={"60"}
                   setModal={handleOpenConfirmationModal}
                   id={data.id}
                 />

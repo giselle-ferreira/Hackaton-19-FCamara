@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import localizacaoIcon from "../../Assets/Images/localizacao.svg";
 import cancelSchedulingIcon from "../../Assets/Images/cancelScheduling.svg";
@@ -6,19 +6,48 @@ import tableIcon from "../../Assets/Images/tableIcon.svg";
 import personIcon from "../../Assets/Images/personIcon.svg";
 import viewDivIcon from "../../Assets/Images/viewDivIcon.svg";
 import closeDivIcon from "../../Assets/Images/closeDivIcon.svg";
+import { api } from "../../services/api";
+import { FormatDateToBackend } from "../../utils/formatDateToBackend";
+import { checkToken } from "../../utils/checkToken";
 
 type LatestSchedulingProps = {
   id: number;
   dayOfWeek: string;
   date: string;
+  dateToBack: Date;
   office: number;
   table: string;
   sector: string;
-  scheduledPeople: string;
   setModal: (id: number) => void;
 };
-export const LatestScheduling = ({ setModal, ...props}: LatestSchedulingProps) => {
+export const LatestScheduling = ({
+  setModal,
+  ...props
+}: LatestSchedulingProps) => {
   const [expandDiv, setExpandDiv] = useState(false);
+  const [scheduledPeople, setScheduledPeople] = useState(0);
+  const token = checkToken();
+  useEffect(() => {
+    const handleHowManyAreScheduleByDate = async () => {
+      try {
+        api
+          .get(`/scheduling/todaySchedulings`, {
+            params: {
+              date: props.dateToBack,
+              office: props.office,
+            },
+            headers: { Authorization: "Bearer " + token },
+          })
+          .then((response) => {
+            console.log(response.data)
+            setScheduledPeople(response.data.length);
+          });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    handleHowManyAreScheduleByDate();
+  }, []);
   return (
     <>
       <div
@@ -39,7 +68,7 @@ export const LatestScheduling = ({ setModal, ...props}: LatestSchedulingProps) =
         </h3>
         <h3>
           <img src={personIcon} />
-          {props.scheduledPeople} Pessoas agendadas
+          {scheduledPeople} Pessoas agendadas
         </h3>
       </div>
 
