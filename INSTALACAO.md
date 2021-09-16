@@ -1,4 +1,10 @@
-> ## BACK-END 
+<h1 align="center">
+    <img alt="FCalendar" src="https://i.postimg.cc/HnCSzQsK/fcalendar-banner-instalacao.png" />
+</h1>
+
+<br>
+
+> ## BACK-END 🔚
 > ### Requisitos
 
 
@@ -47,7 +53,7 @@
 <br>
 <br>
 
-> ## FRONT-END
+> ## FRONT-END 🖼️
 > ### Requisitos
 
 
@@ -72,4 +78,7 @@
  npm start
 ```
 
+<br>
+<br>
 
+Agora sim! Tudo pronto! ✔️
