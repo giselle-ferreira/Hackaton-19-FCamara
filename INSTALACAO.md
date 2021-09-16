@@ -11,7 +11,7 @@
 <br>
 
 + Node.js x64 - versão 14.16.0
-+ Yarn - versão 1.22.4
++ Npm x64 - versão 6.14.11 ou Yarn versão 1.22
 + Postgres - ElephantSQL
 
 <br>
@@ -20,22 +20,36 @@
 
 > ### Instalação
 
-+ Instale o npm;
++ Dê um fork ou clone [este repositório](https://github.com/JenniSalum/Hackaton-19-FCamara.git) em sua máquina local;
+```git 
 
-+ Instale o Yarn;
+git clone https://github.com/JenniSalum/Hackaton-19-FCamara.git
 
-+ Dê um fork ou clone [este repositório](https://github.com/Gab360riel/Hackaton-19-FCamara-Backend) em sua máquina local;
+```
 
++ Instale as dependências do projeto:
+
+```npm
+    
+    npm install 
+    
+    ou 
+    
+    yarn 
+```
 + Entre no diretório /backend e instale as dependências do backend:
 
 ```npm
+
+   ou
+   
  yarn
 ```
 
 <br>
 <br>
 
->### SWAGGER!
+>### Swagger!
 O Swagger está linkado com a API, sua rota atual é.: http://localhost:3333/api-docs/#/
 
 
@@ -47,7 +61,7 @@ O Swagger está linkado com a API, sua rota atual é.: http://localhost:3333/api
 
 
 + Node.js x64 - versão 14.16.0
-+ Npm x64 - versão 6.14.11 | + Yarn 1.22
++ Npm x64 - versão 6.14.11 ou Yarn 1.22
 
 
 <br>
@@ -55,7 +69,7 @@ O Swagger está linkado com a API, sua rota atual é.: http://localhost:3333/api
 
 > ### Instalação
 
-Faça o clone do projeto do front-end [Aqui.](https://github.com/JenniSalum/Hackaton-19-FCamara.git)
+Dê um fork ou clone [este repositório](https://github.com/JenniSalum/Hackaton-19-FCamara.git)
 
 ```git 
 
