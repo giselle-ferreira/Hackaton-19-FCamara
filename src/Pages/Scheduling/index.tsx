@@ -10,6 +10,8 @@ import tableIcon from "../../Assets/Images/tableIcon.svg";
 import Calendar from "react-calendar";
 
 import spMap from "../../Assets/Images/spMap.svg";
+import santosMap from "../../Assets/Images/santosMap.svg";
+
 import confirmButton from "../../Assets/Images/confirmButton.svg";
 import "react-calendar/dist/Calendar.css";
 import { FormEvent, useEffect, useState } from "react";
@@ -94,12 +96,49 @@ export const Scheduling = () => {
 
       setTimeout(() => history.push("/home"), 2000);
     } catch (err) {
-      toast.error("Não foi possível realizar o seu agendamento!");
+      toast.error("Estação indisponível, selecione outra!");
     }
   };
 
-  // Calendar
-  const disabledDates = [new Date("2021-09-16"), new Date("2021-09-18")];
+  // block Calendar days
+  // const disabledDates = [new Date("2021-09-16"), new Date("2021-09-18")];
+
+  // it will be an update to filter the unavailables seats
+  // SP and Santos - unavailables seats
+  // const [spUnavailableSeats, setSpAvailableSeats] = useState<Array<Object>>([]);
+  // const [sanUnavailableSeats, setSanAvailableSeats] = useState<Array<Object>>(
+  //   []
+  // );
+  // useEffect(() => {
+  //   const handleSpUnavailableSeats = async () => {
+  //     api
+  //       .get("scheduling", {
+  //         params: { office: 1 },
+  //         headers: {
+  //           Authorization: "Bearer " + token,
+  //         },
+  //       })
+  //       .then((response) => {
+  //         setSpAvailableSeats(response.data);
+  //         console.log(response.data);
+  //       });
+  //   };
+  //   const handleSanUnavailableSeats = async () => {
+  //     api
+  //       .get("scheduling", {
+  //         params: { office: 2 },
+  //         headers: {
+  //           Authorization: "Bearer " + token,
+  //         },
+  //       })
+  //       .then((response) => {
+  //         setSanAvailableSeats(response.data);
+  //         console.log(response.data);
+  //       });
+  //   };
+  //   handleSpUnavailableSeats();
+  //   handleSanUnavailableSeats();
+  // }, []);
 
   return (
     <>
@@ -129,15 +168,6 @@ export const Scheduling = () => {
                 value={scheduleDate}
                 minDate={new Date()}
                 maxDetail={"month"}
-                tileDisabled={({ date, view }) =>
-                  view === "month" && // Block day tiles only
-                  disabledDates.some(
-                    (disabledDate) =>
-                      date.getFullYear() === disabledDate.getFullYear() &&
-                      date.getMonth() === disabledDate.getMonth() &&
-                      date.getDate() === disabledDate.getDate() + 1
-                  )
-                }
               />
             </div>
             <p>
@@ -180,7 +210,11 @@ export const Scheduling = () => {
                 </label>
               </div>
               <div className={styles.mapArea}>
-                <img src={spMap} alt="" />
+                {office === "1" ? (
+                  <img src={spMap} alt="Mapa São Paulo" />
+                ) : (
+                  <img src={santosMap} alt="" />
+                )}
               </div>
               <form
                 className={styles.schedulingButtonArea}
