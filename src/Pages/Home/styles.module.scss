@@ -296,22 +296,10 @@ main {
     margin: 8px;
     display: flex;
     justify-content: center;
-    .selectedPage {
-      color: #990099;
-      font-weight: 900;
-      text-decoration: underline;
-    }
-  }
-
-  .pagesMobile a {
-    text-decoration: none;
     color: #990099;
-    font-size: 14px;
-    font-weight: 700;
-    margin: 0 3px 0 3px;
-  }
-
-  .pagesMobile p {
+    font-weight: 900;
+    text-decoration: underline;
+    p {
     color: #990099;
     font-size: 18px;
     font-weight: 700;
@@ -319,10 +307,11 @@ main {
     margin: 0 30px 0 30px;
   }
 
+  }
   .pages {
     display: none;
   }
-
+  .pagesMobile .pagesMobile 
   .ordenar h4 {
     display: none;
   }

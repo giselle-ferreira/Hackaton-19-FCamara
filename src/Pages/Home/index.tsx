@@ -19,6 +19,9 @@ import { LatestScheduling } from "../../components/LatestScheduling";
 import { formatDateGetOfWeek } from "../../utils/formatDateGetOfWeek";
 import toast, { Toaster } from "react-hot-toast";
 
+import previousPageMobile from "../../Assets/Images/previousPageMobile.svg";
+import nextPageMobile from "../../Assets/Images/nextPageMobile.svg";
+
 type schedulingData = {
   id: number;
   office: number;
@@ -114,17 +117,16 @@ export const Home = () => {
         },
       });
       await loadLatestScheduling();
-      
+
       toast.success("Seu agendamento foi cancelado com sucesso!");
     } catch {
       toast.error("Não foi possível cancelar o seu agendamento!");
-    }
-    finally {
+    } finally {
       setButtonModalDisable(false);
       handleCloseConfirmationModal();
     }
   };
-  
+
   /* Modal */
   const [confirmationModal, setConfirmationModal] = useState(false);
   const handleOpenConfirmationModal = (schedulingId: number) => {
@@ -194,6 +196,15 @@ export const Home = () => {
                 </a>{" "}
                 <a onClick={handleLastPage}>
                   <img src={lastPageButton} alt="" />
+                </a>{" "}
+              </div>
+              <div className={styles.pagesMobile}>
+                <a onClick={handleDecreasePagination}>
+                  <img src={previousPageMobile} alt="" />
+                </a>{" "}
+                <p> {page}</p>
+                <a onClick={handleIncreasePagination}>
+                  <img src={nextPageMobile} alt="" />
                 </a>{" "}
               </div>
             </div>
@@ -268,7 +279,11 @@ export const Home = () => {
         <p>Tem certeza que você deseja o agendamento?</p>
 
         <div className="confirmArea">
-          <button type="button" onClick={handleCloseConfirmationModal} disabled={buttonModalDisable}>
+          <button
+            type="button"
+            onClick={handleCloseConfirmationModal}
+            disabled={buttonModalDisable}
+          >
             Cancelar
           </button>
           <button
