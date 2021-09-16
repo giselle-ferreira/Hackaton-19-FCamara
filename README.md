@@ -11,10 +11,15 @@
 	<a href="#layout-desktop">Layout Desktop</a> • 
 	<a href="#tecnologias">Tecnologias</a> • 
 	<a href="#links-complementares">Links Complementares</a> • 
-	<a href="#autores">Autores</a>
-	<a href="#licenca">Licença</a>
+	<a href="#autores">Autores</a> •
+	<a href="#licenca">Licença</a> •
 	<a href="#agradecimentos">Agradecimentos</a>
 </p>
+
+Tabela de Conteúdos
+
+* [Sobre](#Sobre)
+* [Layout Mobile](#layout-mobile)
 
 
 </br>
@@ -102,6 +107,8 @@ Este projeto está sob licença: [![APM](https://img.shields.io/apm/l/react)](ht
 </br>
 
 ## Agradecimentos 🙏
+
+Agradecemos a toda 
 
 </br>
 
