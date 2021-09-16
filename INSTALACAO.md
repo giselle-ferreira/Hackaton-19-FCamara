@@ -73,7 +73,7 @@ Faça o clone do projeto do front-end https://github.com/JenniSalum/Hackaton-19-
 git clone https://github.com/JenniSalum/Hackaton-19-FCamara.git
 
 ```
-+ Agora instale as dependências do projeto
++ Agora instale as dependências do projeto:
 
 ```npm
     
