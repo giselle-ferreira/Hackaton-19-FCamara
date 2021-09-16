@@ -55,6 +55,15 @@ export const Scheduling = () => {
           })
           .then((response) => {
             setScheduledPeople(response.data.length);
+            if (office === "1" && response.data.length == 2) {
+              toast.error(
+                "Dia com capacidade máxima! Não será possível Agendar."
+              );
+            } else if (office === "2" && response.data.length == 40) {
+              toast.error(
+                "Dia com capacidade máxima! Não será possível Agendar."
+              );
+            }
           });
       } catch (err) {
         console.log(err);
