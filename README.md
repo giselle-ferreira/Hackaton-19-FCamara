@@ -6,34 +6,25 @@
 
 <p align="center">
 	<a href="#sobre">Sobre o FCalendar</a> • 
-	<a href="#requirements">Funcionalidades</a> • 
-	<a href="#get-project">Layout Mobile</a> • 
-	<a href="#technologies">Layout Desktop</a> • 
-	<a href="#rules">Tecnologias</a> • 
-	<a href="#extras">Links Complementares</a> • 
-	<a href="#contributors">Autores</a>
+	<a href="#funcionalidades">Funcionalidades</a> • 
+	<a href="#layout-mobile">Layout Mobile</a> • 
+	<a href="#layout-desktop">Layout Desktop</a> • 
+	<a href="#tecnologias">Tecnologias</a> • 
+	<a href="#links-complementares">Links Complementares</a> • 
+	<a href="#autores">Autores</a>
+	<a href="#licenca">Licença</a>
+	<a href="#agradecimentos">Agradecimentos</a>
 </p>
 
 
 </br>
-</br> 
-
-
-[![APM](https://img.shields.io/apm/l/react)](https://github.com/JenniSalum/Hackaton-19-FCamara/blob/main/LICENSE)
-
 
 
 ## Sobre o FCalendar :spiral_calendar:
 O FCalendar foi desenvolvido para o Hackathon do Programa de Formação do [Grupo FCamara](https://www.fcamara.com.br/).
 Trata-se de um website que ajuda você a programar sua rotina de trabalho. Nele você pode agendar os dias que precisar ir ao escritório. E isso tudo é feito de forma segura, de acordo com as exigências de distanciamento social atuais. Apenas a quantidade segura de pessoas é permitida no local, e se você quiser se sentir mais seguro, nosssa aplicação também te informa a quantidade de pessoas que já estão agendadas para o dia que você escolheu.
 
-
-
-
-## Site do Projeto 💻
-
-[FCalendar](https://https://www.google.com.br/)
-
+</br>
 
 
 ## Funcionalidades ⚙️
@@ -45,7 +36,7 @@ Trata-se de um website que ajuda você a programar sua rotina de trabalho. Nele 
 - [x] Cancelamento de agendamento
 - [x] A quantidade máxima de estações disponíveis obedece às normais atuais de distanciamento social
 
-</br>
+
 </br> 
 
 ## Layout 🖼️  
@@ -83,7 +74,7 @@ Trata-se de um website que ajuda você a programar sua rotina de trabalho. Nele 
 <img align="left" alt="Trello" src="https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white" />
 <img align="left" alt="Maze" src="https://img.shields.io/badge/-MAZE-blue" />
 
-</br>
+
 </br>
 
 
@@ -102,3 +93,16 @@ Trata-se de um website que ajuda você a programar sua rotina de trabalho. Nele 
 + Giselle Ferreira da Silva - [Github](https://github.com/giselle-ferreira) | [Linkedin](www.linkedin.com/in/giselleferreiras)
 + Maria Letícia Dantas - [Linkedin](https://www.linkedin.com/in/leudantas/) | [Medium](https://leudantas.medium.com/)
 
+</br>
+
+## Licença 📜
+
+Este projeto está sob licença: [![APM](https://img.shields.io/apm/l/react)](https://github.com/JenniSalum/Hackaton-19-FCamara/blob/main/LICENSE)
+
+</br>
+
+## Agradecimentos 🙏
+
+</br>
+
+[⬆ Voltar ao topo](#sobre)<br>
