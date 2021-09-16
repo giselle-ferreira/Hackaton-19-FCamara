@@ -3,16 +3,13 @@
 </h1>
 
 <br>
-
 > ## BACK-END 🔚
 > ### Requisitos
 
 
 + Node.js x64 - versão 14.16.0
-+ MongoDB x64 - versão 4.4.4
-+ Npm x64 - versão 6.14.11
-+ Typescript x64 - versão 4.4.3 
-+ Docker x64 - versão 20.10.5
++ Yarn - versão 1.22.4
++ Postgres - ElephantSQL
 
 <br>
 <br>
@@ -20,35 +17,21 @@
 
 > ### Instalação
 
-+ Instale o docker. Posteriormente ele instalará o Node.js e o MongoDB;
++ Instale o npm;
 
-+ Instale o Typescript. Este precisa ser instalado globalmente;
++ Instale o Yarn;
 
-+ Instale o docker;
-
-+ Após a instalação do tyspescript, dê um fork ou clone este repositório em sua máquina local;
++ Dê um fork ou clone este repositório em sua máquina local;
 
 + Entre no diretório /backend e instale as dependências do backend:
 
 ```npm
- npm install
-```
-+ Entre no diretório /backend e inicie o docker:
-
-```docker
- npm run up
+ yarn
 ```
 
-+ [Opcional] Caso queria desligar o docker rode o comando:
+## SWAGGER!
+O Swagger está linkado com a API, sua rota atual é.: http://localhost:3333/api-docs/#/
 
-```docker
- npm run down
-```
-+ [Opcional] Caso queria visualizar os testes, execute o comando:
-
-```npm
- npm test
-```
 
 <br>
 <br>
