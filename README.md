@@ -20,7 +20,7 @@
 	<a href="#agradecimentos">Agradecimentos</a>
 </p>
 
-[Licença](#-licenca)
+
 
 <br>
 <br>
