@@ -58,8 +58,7 @@
 
 
 + Node.js x64 - versão 14.16.0
-+ Npm x64 - versão 6.14.11
-+ ReacJS - versão 17.0.2
++ Npm x64 - versão 6.14.11 | + Yarn 1.22
 
 
 <br>
@@ -67,17 +66,35 @@
 
 > ### Instalação
 
-+ Agora, troque para o diretório da /frontend e execute o seguinte comando:
+Faça o clone do projeto do front-end https://github.com/JenniSalum/Hackaton-19-FCamara.git
+
+```git 
+
+git clone https://github.com/JenniSalum/Hackaton-19-FCamara.git
+
+```
++ Agora instale as dependências do projeto
 
 ```npm
- npm install
+    
+    npm install 
+    
+    ou 
+    
+    yarn 
 ```
 
 + Agora inicie a aplicação localmente utilizando o comando:
 ```npm
  npm start
+ 
+ ou 
+ 
+ yarn start
+
 ```
 
+Aplicação estará funcionando em http://localhost:3333
 <br>
 <br>
 
