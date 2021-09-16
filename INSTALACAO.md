@@ -66,7 +66,7 @@
 
 > ### Instalação
 
-Faça o clone do projeto do front-end [Repositório](https://github.com/JenniSalum/Hackaton-19-FCamara.git)
+Faça o clone do projeto do front-end [Aqui.](https://github.com/JenniSalum/Hackaton-19-FCamara.git)
 
 ```git 
 
