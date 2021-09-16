@@ -1,6 +1,6 @@
 
 <h1 align="center">
-    <img alt="FCalendar" src="https://i.postimg.cc/T30gnxtc/fcalendar-banner-readme.png" />
+    <img alt="FCalendar" src="https://i.postimg.cc/rF9byWQm/fcalendar-banner-readme.png" />
 </h1>
 
 ---
@@ -47,6 +47,12 @@ Trata-se de um website que ajuda você a programar sua rotina de trabalho. Nele 
 
 ### Mobile 📱  
 
+<p align="center">
+  <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/CLpYnhFB/mob-cadastro.png" width="200px">
+  <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/CLnNX0DN/mob-login2.png" width="200px">
+  <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/RFb7ppZy/mob-home.png" width="200px">
+  <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/90Y9Tcnd/mob-agendamento.png" width="200px"> 
+
 ### Desktop 🖥️
 
 
@@ -58,9 +64,18 @@ Trata-se de um website que ajuda você a programar sua rotina de trabalho. Nele 
 <img align="left" alt="Typescript" src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" />
 <img align="left" alt="React" src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" />
 <img align="left" alt="Javascript" src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" />
+
+</br></br>
 <img align="left" alt="Nodejs" src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white" />
 <img align="left" alt="git" src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" />
+<img align="left" alt="Heroku" src="https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white" />
+<img align="left" alt="Postgres" src="https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white" />
 <img align="left" alt="Figma" src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" />
+<img align="left" alt="Trello" src="https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white" />
+<img align="left" alt="Maze" src="https://img.shields.io/badge/-MAZE-blue" />
+
+
+
 </br>
 </br>
 </p>
@@ -70,4 +85,15 @@ Trata-se de um website que ajuda você a programar sua rotina de trabalho. Nele 
 [Protótipo do Figma](https://www.figma.com/file/xNP9lmoAzlzvyqOWPGhKuh/FCalendar?node-id=175%3A7530)
 
 [BrandbookFCalendar](https://mariadantas.notion.site/Brandbook-FCalendar-41fba29b6b994a6dafd0c62636d19d58)
+
+[Teste de Usabilidade](https://t.maze.co/53151283)
+
+</br>
+
+## Autores 🔗
+
+• David do Carmo Santos - [GitHub](https://github.com/davidscarmo) [Linkedin](https://www.linkedin.com/in/davidscarmo/)
+• Gabriel Deciomo Martins - [GitHub]() [Linkedin](https://www.linkedin.com/in/gabriel-deciomo-martins-6468b91b0/)
+• Giselle Ferreira da Silva - [Github](https://github.com/giselle-ferreira) [Linkedin](www.linkedin.com/in/giselleferreiras)
+• Maria Letícia Dantas - [Linkedin](https://www.linkedin.com/in/leudantas/) [Medium](https://leudantas.medium.com/)
 
