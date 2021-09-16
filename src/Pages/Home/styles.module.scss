@@ -27,7 +27,6 @@ main {
   text-align: center;
 }
 
-
 .main .historico h1 {
   font: 600 18px "Spartan", sans-serif;
   justify-content: center;
@@ -217,36 +216,19 @@ main {
 }
 
 @media (max-width: 960px) {
-
   html {
     scroll-behavior: smooth;
-
   }
-
-  .header {
-    width: 100%;
-    height: 3.9rem;
-  }
-
-  .header .logo {
-    width: 5rem;
-    left: 10px;
-    top: 19px;
-  }
-
-  .header p {
-    font-size: .9rem;
-    margin-right: 7px;
-  }
-  
 
   /*------ Main ------ */
-
+  main {
+    height: 100%;
+  }
   .main {
     flex-direction: column;
   }
 
-   .titulo h1 {
+  .titulo h1 {
     text-align: center;
     padding-top: 55px;
     font-size: 20px;
@@ -255,7 +237,6 @@ main {
     margin-right: auto;
   }
 
-  
   /*-- Novo Agendamento -- */
 
   .main .novoAgendamento {
@@ -274,7 +255,7 @@ main {
   }
 
   .localizacaoMobile {
-    display: inline-block !important; 
+    display: inline-block !important;
   }
 
   .main .novoAgendamento h5 {
@@ -288,7 +269,7 @@ main {
     margin-left: auto;
     margin-right: auto;
   }
-   
+
   .btnSp {
     margin-top: 8px;
     margin-left: auto;
@@ -299,8 +280,6 @@ main {
     margin-left: auto;
     margin-right: auto;
   }
-  
-  
 
   /*-- Histórico -- */
 
@@ -323,17 +302,17 @@ main {
       text-decoration: underline;
     }
   }
-  
+
   .pagesMobile a {
     text-decoration: none;
-    color:#990099;
+    color: #990099;
     font-size: 14px;
     font-weight: 700;
     margin: 0 3px 0 3px;
   }
 
   .pagesMobile p {
-    color:#990099;
+    color: #990099;
     font-size: 18px;
     font-weight: 700;
     line-height: 21px;
@@ -348,42 +327,38 @@ main {
     display: none;
   }
 
-  
   /*-- Agendamentos Atuais -- */
 
   .main .agendamentosAtuais {
     order: 3;
     margin-bottom: 50px;
     margin-left: auto;
-    margin-right: auto;    
+    margin-right: auto;
   }
 
-  .main .agendamentosAtuais .agendamento1,
-  .main .agendamentosAtuais .agendamento2 {
+  .main .agendamentosAtuais .agendamento {
     margin-top: 24px;
     width: 310px;
     height: 78px;
   }
 
-  .main .agendamentosAtuais .agendamento1 h2,
-  .main .agendamentosAtuais .agendamento2 h2 {
+  .main .agendamentosAtuais .agendamento h2 {
     font-size: 22px;
     line-height: 25px;
   }
 
-  .main .agendamentosAtuais .agendamento1 h3,
-  .main .agendamentosAtuais .agendamento2 h3 {
+  .main .agendamentosAtuais .agendamento h3 {
     font-size: 18px;
     font-weight: 400;
-    color: #5A5A5A;
+    color: #5a5a5a;
     line-height: 21px;
   }
- 
+
   .main .agendamentosAtuais .visualEdit h5 {
-    color: #6699CC;
+    color: #6699cc;
   }
-  
+
   .main .agendamentosAtuais .visualEdit a {
-    color: #6699CC;
+    color: #6699cc;
   }
 }

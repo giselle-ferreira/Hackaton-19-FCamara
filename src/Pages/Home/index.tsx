@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../Context/UserContext";
 import { api } from "../../services/api";
+import { Footer } from "../Footer";
 import { Header } from "../Header";
 import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
 import { formatDate } from "../../utils/formatDate";
-import { Footer } from "../Footer";
 
 import Modal from "react-modal";
 import "./modal.scss";
@@ -15,8 +15,6 @@ import firstPageButton from "../../Assets/Images/firstPageButton.svg";
 import nextPageButton from "../../Assets/Images/nextPageButton.svg";
 import previousPageButton from "../../Assets/Images/previousPageButton.svg";
 import lastPageButton from "../../Assets/Images/lastPageButton.svg";
-import lastPageMobile from "../../Assets/Images/lastPageMobile.svg";
-import nextPageMobile from "../../Assets/Images/nextPageMobile.svg";
 import { LatestScheduling } from "../../components/LatestScheduling";
 import { formatDateGetOfWeek } from "../../utils/formatDateGetOfWeek";
 import toast, { Toaster } from "react-hot-toast";
@@ -116,16 +114,17 @@ export const Home = () => {
         },
       });
       await loadLatestScheduling();
-
+      
       toast.success("Seu agendamento foi cancelado com sucesso!");
     } catch {
       toast.error("Não foi possível cancelar o seu agendamento!");
-    } finally {
+    }
+    finally {
       setButtonModalDisable(false);
       handleCloseConfirmationModal();
     }
   };
-
+  
   /* Modal */
   const [confirmationModal, setConfirmationModal] = useState(false);
   const handleOpenConfirmationModal = (schedulingId: number) => {
@@ -196,27 +195,6 @@ export const Home = () => {
                 <a onClick={handleLastPage}>
                   <img src={lastPageButton} alt="" />
                 </a>{" "}
-              </div>
-              
-              <div className={styles.pagesMobile}>
-                  <a onClick={handleDecreasePagination} href="#voltar">
-                    <img src={lastPageMobile} alt="" />
-                  </a>
-                    {numberOfPages?.map((pageNumber) => {
-                  return (
-                    <a
-                      onClick={() => handlePageSelect(pageNumber + 1)}
-                      className={`${
-                        page === pageNumber + 1 ? styles.selectedPage : ""
-                      }`}
-                    >
-                      {pageNumber + 1}
-                    </a>
-                  );
-                })}
-                    <a onClick={handleIncreasePagination} href="#avancar">
-                      <img src={nextPageMobile} alt="" />
-                    </a>
               </div>
             </div>
           </div>
@@ -290,11 +268,7 @@ export const Home = () => {
         <p>Tem certeza que você deseja o agendamento?</p>
 
         <div className="confirmArea">
-          <button
-            type="button"
-            onClick={handleCloseConfirmationModal}
-            disabled={buttonModalDisable}
-          >
+          <button type="button" onClick={handleCloseConfirmationModal} disabled={buttonModalDisable}>
             Cancelar
           </button>
           <button
