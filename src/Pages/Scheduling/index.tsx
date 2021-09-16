@@ -20,6 +20,7 @@ import { api } from "../../services/api";
 import { checkToken } from "../../utils/checkToken";
 import { FormatDateToBackend } from "../../utils/formatDateToBackend";
 import toast, { Toaster } from "react-hot-toast";
+import Loading from "../../components/Loading";
 
 type paramsProps = {
   id: string;
@@ -77,7 +78,7 @@ export const Scheduling = () => {
 
   const handleCreateAScheduling = async (e: FormEvent) => {
     e.preventDefault();
-
+    setLoading(true);
     try {
       const date = FormatDateToBackend(scheduleDate);
       await api.post(
@@ -98,6 +99,8 @@ export const Scheduling = () => {
       setTimeout(() => history.push("/home"), 2000);
     } catch (err) {
       toast.error("Estação indisponível, selecione outra!");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -227,12 +230,14 @@ export const Scheduling = () => {
               >
                 <button
                   type="submit"
-                  className={`${seat.length < 1 ? styles.buttonOpacity : ""}`}
-                  disabled={seat.length < 1}
+                  className={`${styles.button} ${
+                    seat.length < 1 || loading ? styles.buttonOpacity : ""
+                  }`}
+                  disabled={seat.length < 1 || loading}
                 >
                   <img src={confirmButton} alt="" />
                   <br />
-                  Agendar
+                  {!loading ? "Agendar" : <Loading />}
                 </button>
               </form>
             </div>

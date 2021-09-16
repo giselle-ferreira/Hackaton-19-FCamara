@@ -107,11 +107,14 @@
 
         .schedulingButtonArea {
           flex: 1.5;
-          button {
+          .button {
             color: #5a5a5a;
             background: none;
             border: none;
             margin-left: 1rem;
+            &:hover:not(:disabled) {
+              opacity: 70%;
+            }
           }
           .buttonOpacity {
             opacity: 30%;
