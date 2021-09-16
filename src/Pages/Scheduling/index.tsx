@@ -47,7 +47,7 @@ export const Scheduling = () => {
 
   useEffect(() => {
     setArrAvailableSeats(ArraySeatsFilter(sector, office));
-  }, [sector]);
+  }, [sector, office]);
 
   useEffect(() => {
     const handleHowManyAreScheduleByDate = async () => {
@@ -59,11 +59,11 @@ export const Scheduling = () => {
           })
           .then((response) => {
             setScheduledPeople(response.data.length);
-            if (office === "1" && response.data.length == 240) {
+            if (office === "1" && response.data.length === 240) {
               toast.error(
                 "Dia com capacidade máxima! Não será possível Agendar."
               );
-            } else if (office === "2" && response.data.length == 40) {
+            } else if (office === "2" && response.data.length === 40) {
               toast.error(
                 "Dia com capacidade máxima! Não será possível Agendar."
               );
@@ -185,21 +185,29 @@ export const Scheduling = () => {
           </div>
           <div className={styles.schedulingOptionsMapArea}>
             <h3>
-              <img src={tableIcon} /> Selecione sua estação de trabalho
+              <img src={tableIcon} alt="ícone de uma mesa " /> Selecione sua
+              estação de trabalho
             </h3>
             <div className={styles.schedulingOptionsAndMapContainer}>
               <div className={styles.selectionArea}>
                 <label>
                   Setor <br />
                   <select onChange={({ target }) => setSector(target.value)}>
-                    <option selected> </option>
+                    <option defaultValue={""}> </option>
                     {office === "1"
-                      ? spSectors.map((spSector) => {
-                          return <option value={spSector}>{spSector}</option>;
-                        })
-                      : sanSectors.map((sanSector) => {
+                      ? spSectors.map((spSector, index) => {
                           return (
-                            <option value={sanSector}> {sanSector}</option>
+                            <option key={index} value={spSector}>
+                              {spSector}
+                            </option>
+                          );
+                        })
+                      : sanSectors.map((sanSector, index) => {
+                          return (
+                            <option key={index} value={sanSector}>
+                              {" "}
+                              {sanSector}
+                            </option>
                           );
                         })}
                   </select>
@@ -208,9 +216,13 @@ export const Scheduling = () => {
                 <label>
                   Estação <br />
                   <select onChange={({ target }) => setSeat(target.value)}>
-                    <option selected> </option>
-                    {arrAvailableSeats.map((seatNumber) => {
-                      return <option value={seatNumber}>{seatNumber} </option>;
+                    <option defaultValue={""}> </option>
+                    {arrAvailableSeats.map((seatNumber, index) => {
+                      return (
+                        <option key={index} value={seatNumber}>
+                          {seatNumber}{" "}
+                        </option>
+                      );
                     })}
                   </select>
                 </label>
@@ -237,7 +249,7 @@ export const Scheduling = () => {
                   }`}
                   disabled={seat.length < 1 || loading}
                 >
-                  <img src={confirmButton} alt="" />
+                  <img src={confirmButton} alt="Botão de confirmação" />
                   <br />
                   {!loading ? "Agendar" : <Loading />}
                 </button>

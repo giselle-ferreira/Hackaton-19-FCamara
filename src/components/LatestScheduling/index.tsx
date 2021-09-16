@@ -7,7 +7,6 @@ import personIcon from "../../Assets/Images/personIcon.svg";
 import viewDivIcon from "../../Assets/Images/viewDivIcon.svg";
 import closeDivIcon from "../../Assets/Images/closeDivIcon.svg";
 import { api } from "../../services/api";
-import { FormatDateToBackend } from "../../utils/formatDateToBackend";
 import { checkToken } from "../../utils/checkToken";
 
 type LatestSchedulingProps = {
@@ -39,7 +38,6 @@ export const LatestScheduling = ({
             headers: { Authorization: "Bearer " + token },
           })
           .then((response) => {
-            console.log(response.data)
             setScheduledPeople(response.data.length);
           });
       } catch (err) {
@@ -59,15 +57,15 @@ export const LatestScheduling = ({
           {props.dayOfWeek}, {props.date}
         </h2>
         <h3>
-          <img src={localizacaoIcon} />
+          <img src={localizacaoIcon} alt="ícone de localização"/>
           {props.office === 1 ? "São Paulo" : "Santos"}
         </h3>
         <h3>
-          <img src={tableIcon} />
+          <img src={tableIcon} alt="ícone de uma mesa"/>
           Mesa {props.table} | Setor {props.sector}
         </h3>
         <h3>
-          <img src={personIcon} />
+          <img src={personIcon} alt="ícone de uma pessoa" />
           {scheduledPeople} Pessoas agendadas
         </h3>
       </div>
@@ -75,20 +73,20 @@ export const LatestScheduling = ({
       <div className={styles.visualEdit}>
         <h5>
           {!expandDiv ? (
-            <a onClick={() => setExpandDiv(!expandDiv)}>
-              <img src={viewDivIcon} /> Visualizar
-            </a>
+            <button onClick={() => setExpandDiv(!expandDiv)}>
+              <img src={viewDivIcon} alt="ícone de um olho aberto - abrir"/> Visualizar
+            </button>
           ) : (
-            <a onClick={() => setExpandDiv(!expandDiv)}>
-              <img src={closeDivIcon} /> Fechar
-            </a>
+            <button onClick={() => setExpandDiv(!expandDiv)}>
+              <img src={closeDivIcon} alt="ícone de um olho com bloqueio - fechar"/> Fechar
+            </button>
           )}
         </h5>
         <h5>
-          <a onClick={() => setModal(props.id)}>
-            <img src={cancelSchedulingIcon} />
+          <button onClick={() => setModal(props.id)}>
+            <img src={cancelSchedulingIcon} alt="Icone de Cancelamento"/>
             Cancelar Agendamento
-          </a>
+          </button>
         </h5>
       </div>
     </>

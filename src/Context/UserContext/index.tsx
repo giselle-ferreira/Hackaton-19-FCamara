@@ -26,7 +26,6 @@ export const UserStorage = ({ children }: UserContextProps) => {
   const [data, setData] = React.useState({ name: "", email: "", id: 0 });
   useEffect(() => {
     const token = window.localStorage.getItem("fcalendartoken");
-    console.log(token);
     if (token) {
       api
         .get("sessions", {

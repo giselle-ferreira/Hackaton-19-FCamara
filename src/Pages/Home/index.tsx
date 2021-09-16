@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../Context/UserContext";
+import { useEffect, useState } from "react";
+// import { UserContext } from "../../Context/UserContext";
 import { api } from "../../services/api";
 import { Footer } from "../Footer";
 import { Header } from "../Header";
@@ -21,7 +21,6 @@ import toast, { Toaster } from "react-hot-toast";
 
 import previousPageMobile from "../../Assets/Images/previousPageMobile.svg";
 import nextPageMobile from "../../Assets/Images/nextPageMobile.svg";
-
 
 type schedulingData = {
   id: number;
@@ -117,7 +116,7 @@ export const Home = () => {
   const handleDeleteScheduling = async (id: number) => {
     try {
       setButtonModalDisable(true);
-      const response = await api.delete(`scheduling/${id}`, {
+      await api.delete(`scheduling/${id}`, {
         headers: {
           Authorization: "Bearer " + token,
         },
@@ -194,9 +193,10 @@ export const Home = () => {
                     alt="Botão Paginação Anterior"
                   />
                 </button>{" "}
-                {numberOfPages?.map((pageNumber) => {
+                {numberOfPages?.map((pageNumber, index) => {
                   return (
                     <button
+                    key={index}
                       onClick={() => handlePageSelect(pageNumber + 1)}
                       className={`${
                         page === pageNumber + 1 ? styles.selectedPage : ""
@@ -235,9 +235,10 @@ export const Home = () => {
           <div className={styles.agendamentosAtuais}>
             <h1>AGENDAMENTOS ATUAIS</h1>
             {latestScheduling.length > 0 ? (
-              latestScheduling.map((data) => {
+              latestScheduling.map((data, index) => {
                 return (
                   <LatestScheduling
+                    key={index}
                     date={formatDate(data.date)}
                     dateToBack={data.date}
                     office={data.office}

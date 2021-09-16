@@ -9,6 +9,7 @@
   overflow: hidden;
   padding-bottom: 0.5rem;
   font-family: "Work Sans", sans-serif;
+
   h2 {
     margin: 14px 61px 0 15px;
     font-size: 1.125rem;
@@ -41,13 +42,14 @@
     font: 500 15px/17.6px "Work Sans", sans-serif;
     color: #b1b1b1;
   }
-  a {
+  button {
     text-decoration: none;
-    color: #6699CC;
+    color: #6699cc;
+    background: none;
+    border: none;
   }
   img {
     margin-right: 4px;
-    color: #b1b1b1;
     height: 15px;
     width: auto;
     align-items: center;

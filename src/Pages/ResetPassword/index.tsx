@@ -31,7 +31,7 @@ export const ResetPassword = () => {
         });
     };
     checkToken();
-  }, []);
+  }, [params.token]);
 
   const handleResetPassword = async (e: FormEvent) => {
     e.preventDefault();
@@ -100,7 +100,7 @@ export const ResetPassword = () => {
               />
 
               {!loading ? (
-                <Button>Recuperar</Button>
+                <Button>Alterar</Button>
               ) : (
                 <Button disabledClass={styles.disabledButton} disabled>
                   <Loading />
