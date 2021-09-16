@@ -3,9 +3,12 @@
 </h1>
 
 <br>
-> ## BACK-END 🔚
+
+> ## BACK-END 🔙
 > ### Requisitos
 
+<br>
+<br>
 
 + Node.js x64 - versão 14.16.0
 + Yarn - versão 1.22.4
@@ -21,7 +24,7 @@
 
 + Instale o Yarn;
 
-+ Dê um fork ou clone este repositório em sua máquina local;
++ Dê um fork ou clone [este repositório](https://github.com/Gab360riel/Hackaton-19-FCamara-Backend) em sua máquina local;
 
 + Entre no diretório /backend e instale as dependências do backend:
 
@@ -29,7 +32,10 @@
  yarn
 ```
 
-## SWAGGER!
+<br>
+<br>
+
+>### SWAGGER!
 O Swagger está linkado com a API, sua rota atual é.: http://localhost:3333/api-docs/#/
 
 
