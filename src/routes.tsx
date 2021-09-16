@@ -13,13 +13,13 @@ export const Routes = () => {
     <BrowserRouter>
       {/* it checks if the token exists and the url name is true and redirect to home if its true */}
       {(checkToken() && window.location.pathname === "/signUp") ||
-      window.location.pathname === "/"  ? (
+      window.location.pathname === "/" ? (
         <Redirect to="/home" />
       ) : null}
       <Switch>
         <Route path="/" exact component={Login} />
         <ProtectedRoute path="/home" component={Home} />
-        <Route path="/scheduling" component={Scheduling} />
+        <Route path="/scheduling/:id" component={Scheduling} />
         <Route path="/signUp" component={SignUp} />
         <Route path="/forgotPassword" component={ForgotPassword} />
         <Route path="/resetPassword/:token" component={ResetPassword} />

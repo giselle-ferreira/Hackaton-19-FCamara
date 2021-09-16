@@ -28,6 +28,7 @@
 
 /*----------------- Boas vindas msg -----------------*/
 .header p {
+  font-family: "Work Sans", sans-serif;
   font-family: 'Work Sans', sans-serif;
   flex-direction: inline-block;
   font-size: 1rem;
@@ -233,6 +234,9 @@
 }
 
 .main .agendamentos-atuais .visual-edit h5 {
+  margin-right: 27px;
+  font: 500 15px/17.6px "Work Sans", sans-serif;
+  color: #b1b1b1;
   margin-left: inherit;
   padding-right: 13px;
   font: 500 15px/17.6px 'Work Sans', sans-serif;
@@ -242,6 +246,12 @@
 .main .agendamentos-atuais .visual-edit a {
   margin-left: 0;
   text-decoration: none;
+  color: #b1b1b1;
+}
+
+.visual-edit img {
+  margin-right: 4px;
+  color: #b1b1b1;
   color: #6699CC;
 }
 
@@ -311,6 +321,13 @@ button {
 .btn-sp {
   padding: 26px 100px 23px 25px;
   background-size: 252px;
+  background-position: 10% 20%;
+  background: linear-gradient(
+      0deg,
+      rgba(153, 0, 153, 0.55),
+      rgba(153, 0, 153, 0.55)
+    ),
+    url(saopaulo.jpg);
   background-position: 100% 20%;
   background: linear-gradient(0deg, rgba(153, 0, 153, 0.55), rgba(153, 0, 153, 0.55)), url(saopaulo.jpg);
   margin-top: 28px;

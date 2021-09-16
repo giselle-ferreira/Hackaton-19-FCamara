@@ -48,7 +48,7 @@ export const Login = () => {
   return (
     <>
       <div className={styles.container}>
-        <aside>
+        <aside className={styles.aside}>
           <img
             src={FCalendarLogo}
             alt="logo FCalendar"
@@ -62,7 +62,7 @@ export const Login = () => {
             Login
           </button>
         </aside>
-        <main>
+        <main className={styles.main}>
           <div className={styles.mainContent}>
             <form id="form" className={styles.form} onSubmit={handleLogin}>
               <h2>Login</h2>

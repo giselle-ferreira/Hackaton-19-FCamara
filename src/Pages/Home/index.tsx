@@ -114,17 +114,16 @@ export const Home = () => {
         },
       });
       await loadLatestScheduling();
-      
+
       toast.success("Seu agendamento foi cancelado com sucesso!");
     } catch {
       toast.error("Não foi possível cancelar o seu agendamento!");
-    }
-    finally {
+    } finally {
       setButtonModalDisable(false);
       handleCloseConfirmationModal();
     }
   };
-  
+
   /* Modal */
   const [confirmationModal, setConfirmationModal] = useState(false);
   const handleOpenConfirmationModal = (schedulingId: number) => {
@@ -223,7 +222,7 @@ export const Home = () => {
             <h5>Selecione um escritório para prosseguir</h5>
             <div className={styles.botoes}>
               <div>
-                <Link to="/scheduling/1">
+                <Link to="/scheduling/2">
                   <button className={`${styles.btnSantos} ${styles.button}`}>
                     Santos
                   </button>
@@ -231,7 +230,7 @@ export const Home = () => {
               </div>
 
               <div>
-                <Link to="/scheduling/2">
+                <Link to="/scheduling/1">
                   <button className={`${styles.btnSp} ${styles.button}`}>
                     São Paulo
                   </button>
@@ -268,7 +267,11 @@ export const Home = () => {
         <p>Tem certeza que você deseja o agendamento?</p>
 
         <div className="confirmArea">
-          <button type="button" onClick={handleCloseConfirmationModal} disabled={buttonModalDisable}>
+          <button
+            type="button"
+            onClick={handleCloseConfirmationModal}
+            disabled={buttonModalDisable}
+          >
             Cancelar
           </button>
           <button
