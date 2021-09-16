@@ -19,7 +19,7 @@ export const Routes = () => {
       <Switch>
         <Route path="/" exact component={Login} />
         <ProtectedRoute path="/home" component={Home} />
-        <Route path="/scheduling/:id" component={Scheduling} />
+        <ProtectedRoute path="/scheduling/:id" component={Scheduling} />
         <Route path="/signUp" component={SignUp} />
         <Route path="/forgotPassword" component={ForgotPassword} />
         <Route path="/resetPassword/:token" component={ResetPassword} />
