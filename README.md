@@ -5,21 +5,17 @@
 </br>
 
 <p align="center">
-	<a href="#sobre">Sobre o FCalendar</a> • 
+	<a href="#sobre-o-fcalendar">Sobre o FCalendar</a> • 
 	<a href="#funcionalidades">Funcionalidades</a> • 
 	<a href="#layout-mobile">Layout Mobile</a> • 
 	<a href="#layout-desktop">Layout Desktop</a> • 
 	<a href="#tecnologias">Tecnologias</a> • 
 	<a href="#links-complementares">Links Complementares</a> • 
-	<a href="#autores">Autores</a> •
+	<a href="#quer-contribuir-para-o-projeto">Quer Contribuir para o projeto?</a> •
 	<a href="#licenca">Licença</a> •
+	<a href="#autores">Autores</a> •
 	<a href="#agradecimentos">Agradecimentos</a>
 </p>
-
-Tabela de Conteúdos
-
-* [Sobre](#Sobre-o-fcalendar)
-* [Layout Mobile](#mobile)
 
 
 </br>
@@ -44,9 +40,9 @@ Trata-se de um website que ajuda você a programar sua rotina de trabalho. Nele 
 
 </br> 
 
-## Layout 🖼️  
+<p align="center">## Layout 🖼️</p>  
 
-### Mobile 📱  
+<p align="center">### Mobile 📱</p>
 
 <p align="center">
   <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/CLpYnhFB/mob-cadastro.png" width="200px">
@@ -54,8 +50,13 @@ Trata-se de um website que ajuda você a programar sua rotina de trabalho. Nele 
   <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/RFb7ppZy/mob-home.png" width="200px">
   <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/90Y9Tcnd/mob-agendamento.png" width="200px"> 
 
-### Desktop 🖥️
+<p align="center">### Desktop 🖥️</p>
 
+<p align="center">
+  <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/CLpYnhFB/mob-cadastro.png" width="200px">
+  <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/CLnNX0DN/mob-login2.png" width="200px">
+  <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/RFb7ppZy/mob-home.png" width="200px">
+  <img alt="FCalendar" title="#FCalendar" src="https://i.postimg.cc/90Y9Tcnd/mob-agendamento.png" width="200px"> 
     
 </br>
 </br>    
@@ -80,6 +81,8 @@ Trata-se de um website que ajuda você a programar sua rotina de trabalho. Nele 
 <img align="left" alt="Maze" src="https://img.shields.io/badge/-MAZE-blue" />
 
 
+
+</br>
 </br>
 
 
@@ -88,6 +91,27 @@ Trata-se de um website que ajuda você a programar sua rotina de trabalho. Nele 
 + [Protótipo do Figma](https://www.figma.com/file/xNP9lmoAzlzvyqOWPGhKuh/FCalendar?node-id=175%3A7530)
 + [BrandbookFCalendar](https://mariadantas.notion.site/Brandbook-FCalendar-41fba29b6b994a6dafd0c62636d19d58)
 + [Teste de Usabilidade](https://t.maze.co/53151283)
+
+</br>
+
+
+## Quer Contribuir para o projeto? 📫 
+Para contribuir com <nome_do_projeto>, siga estas etapas:
+
+1. Bifurque este repositório.
+2. Crie um branch: `git checkout -b <nome_branch>`.
+3. Faça suas alterações e confirme-as: `git commit -m '<mensagem_commit>'`
+4. Envie para o branch original: `git push origin main`
+5. Crie a solicitação de pull.
+
+Como alternativa, consulte a documentação do GitHub em [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+
+
+</br>
+
+## Licença 📜
+
+Este projeto está sob licença: [![APM](https://img.shields.io/apm/l/react)](https://github.com/JenniSalum/Hackaton-19-FCamara/blob/main/LICENSE)
 
 </br>
 
@@ -100,15 +124,10 @@ Trata-se de um website que ajuda você a programar sua rotina de trabalho. Nele 
 
 </br>
 
-## Licença 📜
-
-Este projeto está sob licença: [![APM](https://img.shields.io/apm/l/react)](https://github.com/JenniSalum/Hackaton-19-FCamara/blob/main/LICENSE)
-
-</br>
 
 ## Agradecimentos 🙏
 
-Agradecemos a toda 
+Agradecemos ao Grupo FCamara pela oportunidade!
 
 </br>
 
