@@ -151,6 +151,10 @@ export const Scheduling = () => {
         <header className={styles.pageTitleArea}>
           <div className={styles.title}>
             <h2>Novo Agendamento </h2>
+            <div className={styles.officeMobile}>
+              <img src={locationIcon} alt="" />
+              <p>{office === "1" ? "São Paulo" : "Santos"}</p>
+            </div>
             <Link to={"/home"}>
               <img src={backButton} alt="" />
             </Link>
@@ -191,13 +195,11 @@ export const Scheduling = () => {
                     <option selected> </option>
                     {office === "1"
                       ? spSectors.map((spSector) => {
-                          return (
-                            <option value={spSector}>Setor {spSector}</option>
-                          );
+                          return <option value={spSector}>{spSector}</option>;
                         })
                       : sanSectors.map((sanSector) => {
                           return (
-                            <option value={sanSector}>Setor {sanSector}</option>
+                            <option value={sanSector}> {sanSector}</option>
                           );
                         })}
                   </select>

@@ -12,6 +12,9 @@
       font-family: "Spartan", sans-serif;
 
       padding: 2rem;
+      .officeMobile {
+        display: none;
+      }
       h2 {
         margin-right: 0.5rem;
         font-size: 2rem;
@@ -73,11 +76,12 @@
         align-items: stretch;
         margin-top: 1.5rem;
         .selectionArea {
-          flex: 2;
+          flex: 1;
           label {
             display: flex;
             flex-direction: column;
-            width: 40%;
+            width: 50%;
+            text-align: center;
             select {
               border-radius: 1.3rem;
               font-size: 1.3rem;
@@ -89,7 +93,7 @@
           }
         }
         .mapArea {
-          flex: 3.5;
+          flex: 3.2;
           border: 1px solid #e5e5e5;
           display: flex;
           align-items: center;
@@ -119,6 +123,85 @@
           .buttonOpacity {
             opacity: 30%;
           }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1020px) {
+  .container {
+    height: 100%;
+    .pageTitleArea {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .title {
+        flex-direction: column;
+        .officeMobile {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0.75rem 0 0.2rem 0;
+          width: 100%;
+          img {
+            max-width: 22px;
+          }
+          p {
+            font-size: 1rem;
+            color: #990099;
+            font-weight: 500;
+          }
+        }
+      }
+      .office {
+        display: none;
+      }
+    }
+    .main {
+      flex-direction: column;
+      .schedulingOptionsMapArea {
+        margin-top: 1rem;
+        flex-direction: column;
+        align-items: center;
+        .schedulingOptionsAndMapContainer {
+          flex-direction: column;
+          .selectionArea {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            order: 1;
+            label {
+              width: 30%;
+              margin: 0 1rem;
+            }
+          }
+          .mapArea {
+            order: 3;
+          }
+          .schedulingButtonArea {
+            order: 2;
+            display: flex;
+            justify-content: center;
+            margin: 1rem;
+            img {
+              width: 4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 361px) {
+  .container {
+    .main {
+      max-width: 80%;
+        align-self: center;
+      .calendarArea {
+        
+        div {
+          max-width: 100%;
         }
       }
     }
