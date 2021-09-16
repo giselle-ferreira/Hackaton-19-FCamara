@@ -89,7 +89,7 @@ Trata-se de um website que ajuda você a programar sua rotina de trabalho. Nele 
 ## Autores 🦸‍♀️🦸‍♂️🦸🦸‍♂️
 
 + David do Carmo Santos - [GitHub](https://github.com/davidscarmo) | [Linkedin](https://www.linkedin.com/in/davidscarmo/)
-+ Gabriel Deciomo Martins - [GitHub]() | [Linkedin](https://www.linkedin.com/in/gabriel-deciomo-martins-6468b91b0/)
++ Gabriel Deciomo Martins - [GitHub](https://github.com/gab360arial) | [Linkedin](https://www.linkedin.com/in/gabriel-deciomo-martins-6468b91b0/)
 + Giselle Ferreira da Silva - [Github](https://github.com/giselle-ferreira) | [Linkedin](www.linkedin.com/in/giselleferreiras)
 + Maria Letícia Dantas - [Linkedin](https://www.linkedin.com/in/leudantas/) | [Medium](https://leudantas.medium.com/)
 
