@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FCalendar</title>
+
+    <!-- Style -->
+    
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Ícones -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <header class="header">
+      
+      <!-- logo -->
+      <div>
+        <object
+          type="image/svg+xml"
+          data="logoFCalendar.svg"
+          class="logo"
+        ></object>
+      </div>
+
+      <!-- Boas Vindas Msg -->
+      <div class="boas-vindas">
+        <p><svg width="17" height="19" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.5 17.375V15.625C15.5 14.6967 15.1313 13.8065 14.4749 13.1501C13.8185 12.4937 12.9283 12.125 12 12.125H5C4.07174 12.125 3.1815 12.4937 2.52513 13.1501C1.86875 13.8065 1.5 14.6967 1.5 15.625V17.375" stroke="#2F2F2F" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.5 8.625C10.433 8.625 12 7.058 12 5.125C12 3.192 10.433 1.625 8.5 1.625C6.567 1.625 5 3.192 5 5.125C5 7.058 6.567 8.625 8.5 8.625Z" stroke="#2F2F2F" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg></p>
+        <p>Bem-vinda, <a href="#">Mariana</a></p>
+      </div>
+
+      <!-- Botão sair -->
+      <div class="botao-sair">                     
+          <a href="#">
+            <svg width="36" height="28" viewBox="0 0 36 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 3V25" stroke="#2F2F2F" stroke-linecap="round"/>
+              <path d="M18.5 24.5H13.8333C13.2145 24.5 12.621 24.2542 12.1834 23.8166C11.7458 23.379 11.5 22.7855 11.5 22.1667V5.83333C11.5 5.21449 11.7458 4.621 12.1834 4.18342C12.621 3.74583 13.2145 3.5 13.8333 3.5H18.5" stroke="#2F2F2F" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M26.6667 19.8332L32.5 13.9998L26.6667 8.1665" stroke="#2F2F2F" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M32.5 14H18.5" stroke="#2F2F2F" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+          </a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Título Geral -->
+      <div class="titulo">
+        <h1>Pronto pra se planejar hoje?</h1>
+      </div>
+
+      <!-- histórico -->
+      <div class="main">
+        <div class="historico">
+          <h1>HISTÓRICO</h1>
+          <div class="board">
+            <table>
+              <!-- <div class="table-title">
+               <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Estação de<br>Trabalho</th>
+                  </tr>
+                </thead> -->
+              </div> 
+
+              <div class="table-title">
+              <h2>Data</h2>
+              <h2>Estação de trabalho</h2>
+              </div>
+              <div class="table-body">
+                
+               <tbody> 
+                  <tr>
+                    <td>DD/MM/YYYY</td>
+                    <td>XX - Setor X</td>
+                  </tr> 
+                  <tr>
+                    <td>DD/MM/YYYY</td>
+                    <td>XX - Setor X</td>
+                  </tr>
+                  <tr>
+                    <td>DD/MM/YYYY</td>
+                    <td>XX - Setor X</td>
+                  </tr>
+                  <tr>
+                    <td>DD/MM/YYYY</td>
+                    <td>XX - Setor X</td>
+                  </tr>
+                  <tr>
+                    <td>DD/MM/YYYY</td>
+                    <td>XX - Setor X</td>
+                  </tr>
+                </tbody>
+              </div>
+            </table>
+
+            <!-- Páginas -->
+
+               <!-- Aparece apenas no mobile -->
+              <div class="pages-mobile">
+                    <a href="#voltar">
+                      <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11.5 21.0832C16.7927 21.0832 21.0833 16.7926 21.0833 11.4998C21.0833 6.20711 16.7927 1.9165 11.5 1.9165C6.20723 1.9165 1.91663 6.20711 1.91663 11.4998C1.91663 16.7926 6.20723 21.0832 11.5 21.0832Z" stroke="#990099" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M11.5 7.6665L7.66663 11.4998L11.5 15.3332" stroke="#990099" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M15.3333 11.5H7.66663" stroke="#990099" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg></a>
+                    <a href="#"><p>1</p></a>
+                    <a href="#avancar">
+                    <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11.5 21.0832C16.7927 21.0832 21.0833 16.7926 21.0833 11.4998C21.0833 6.20711 16.7927 1.9165 11.5 1.9165C6.20723 1.9165 1.91663 6.20711 1.91663 11.4998C1.91663 16.7926 6.20723 21.0832 11.5 21.0832Z" stroke="#990099" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M11.5 15.3332L15.3333 11.4998L11.5 7.6665" stroke="#990099" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M7.66663 11.5H15.3333" stroke="#990099" stroke-width="2.91667" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg></a>
+              </div>
+
+                <!-- Aparece no desktop -->
+              <div class="pages">
+                <a href="#">
+                <svg width="16" height="7" viewBox="0 0 16 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.672 0.624L2.688 3.76L4.672 6.896H2.656L0.656 3.76L2.656 0.624H4.672ZM8.16 0.624L6.176 3.76L8.16 6.896H6.144L4.144 3.76L6.144 0.624H8.16ZM15.6708 0.624L13.6867 3.76L15.6708 6.896H13.6547L11.6547 3.76L13.6547 0.624H15.6708Z" fill="#B1B1B1"/>
+                </svg>
+               </a>
+               <a href="#">1</a>
+               <a href="#">2</a>
+               <a href="#">3</a>
+               <a href="#">4</a>
+               <a href="#">5</a>
+               <a href="#">6</a>
+               <a href="#">
+                <svg width="16" height="7" viewBox="0 0 16 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0.656 6.896L2.64 3.76L0.656 0.624H2.672L4.672 3.76L2.672 6.896H0.656ZM11.6588 6.896L13.6427 3.76L11.6588 0.624H13.6747L15.6748 3.76L13.6747 6.896H11.6588ZM8.17075 6.896L10.1547 3.76L8.17075 0.624H10.1867L12.1867 3.76L10.1867 6.896H8.17075Z" fill="#B1B1B1"/>
+                </svg>
+               </a>
+              </div>   
+          </div>
+
+          <div class="ordenar">
+            <h4><img src="/">Ordernar(Mais recentes)</h4>
+            <h4><img src="/">Filtrar</h4>
+          </div>
+        </div>
+
+        <!-- agendamentos atuais -->
+        <div class="agendamentos-atuais">
+          <h1>AGENDAMENTOS ATUAIS</h1>
+          <div class="agendamento1">
+            <h2>Sexta-feira, 10/09/21</h2>
+            <h3><img src="#" />São Paulo</h3>
+          </div>
+
+          <div class="visual-edit">
+            <h5>
+              <a href="#"></a><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0)">
+                <path d="M0.658112 7.99984C0.658112 7.99984 3.29059 2.6665 7.89743 2.6665C12.5043 2.6665 15.1367 7.99984 15.1367 7.99984C15.1367 7.99984 12.5043 13.3332 7.89743 13.3332C3.29059 13.3332 0.658112 7.99984 0.658112 7.99984Z" stroke="#6699CC" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7.89742 10C8.98783 10 9.87178 9.10457 9.87178 8C9.87178 6.89543 8.98783 6 7.89742 6C6.80702 6 5.92307 6.89543 5.92307 8C5.92307 9.10457 6.80702 10 7.89742 10Z" stroke="#6699CC" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0">
+                <rect width="15.7949" height="16" fill="white"/>
+                </clipPath>
+                </defs>
+                </svg>
+                Visualizar</a>
+            </h5>
+            <h5>
+              <a href="#"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.875 1.875H3.125C2.43464 1.875 1.875 2.43464 1.875 3.125V11.875C1.875 12.5654 2.43464 13.125 3.125 13.125H11.875C12.5654 13.125 13.125 12.5654 13.125 11.875V3.125C13.125 2.43464 12.5654 1.875 11.875 1.875Z" stroke="#6699CC" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5.625 5.625L9.375 9.375" stroke="#6699CC" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9.375 5.625L5.625 9.375" stroke="#6699CC" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Cancelar agendamento</a>
+            </h5>
+          </div>
+
+          <div class="agendamento2">
+            <h2>Sexta-feira, 13/09/21</h2>
+            <h3><img src="#" />São Paulo</h3>         
+          </div>
+
+          <div class="visual-edit">
+              <h5>
+                <a href="#"></a><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0)">
+                  <path d="M0.658112 7.99984C0.658112 7.99984 3.29059 2.6665 7.89743 2.6665C12.5043 2.6665 15.1367 7.99984 15.1367 7.99984C15.1367 7.99984 12.5043 13.3332 7.89743 13.3332C3.29059 13.3332 0.658112 7.99984 0.658112 7.99984Z" stroke="#6699CC" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M7.89742 10C8.98783 10 9.87178 9.10457 9.87178 8C9.87178 6.89543 8.98783 6 7.89742 6C6.80702 6 5.92307 6.89543 5.92307 8C5.92307 9.10457 6.80702 10 7.89742 10Z" stroke="#6699CC" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0">
+                  <rect width="15.7949" height="16" fill="white"/>
+                  </clipPath>
+                  </defs>
+                  </svg>
+                  Visualizar</a>
+              </h5>
+              <h5>
+                <a href="#"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11.875 1.875H3.125C2.43464 1.875 1.875 2.43464 1.875 3.125V11.875C1.875 12.5654 2.43464 13.125 3.125 13.125H11.875C12.5654 13.125 13.125 12.5654 13.125 11.875V3.125C13.125 2.43464 12.5654 1.875 11.875 1.875Z" stroke="#6699CC" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M5.625 5.625L9.375 9.375" stroke="#6699CC" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9.375 5.625L5.625 9.375" stroke="#6699CC" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  Cancelar agendamento</a>
+              </h5> 
+            </h5>
+          </div>
+        </div>
+
+        <!-- novo agendamento -->
+        <div class="novo-agendamento">
+          <h1>NOVO AGENDAMENTO</h1>
+          <h5><a href="#" class="localizacao-mobile"><svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.09091 4.70562C9.09091 7.69904 5 10.2648 5 10.2648C5 10.2648 0.909088 7.69904 0.909088 4.70562C0.909088 3.68488 1.34009 2.70596 2.10729 1.98419C2.87448 1.26242 3.91502 0.856934 5 0.856934C6.08497 0.856934 7.12551 1.26242 7.89271 1.98419C8.6599 2.70596 9.09091 3.68488 9.09091 4.70562Z" stroke="#990099" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4.99999 5.98864C5.7531 5.98864 6.36362 5.41427 6.36362 4.70575C6.36362 3.99722 5.7531 3.42285 4.99999 3.42285C4.24687 3.42285 3.63635 3.99722 3.63635 4.70575C3.63635 5.41427 4.24687 5.98864 4.99999 5.98864Z" stroke="#990099" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            
+            </a>Selecione um escritório para prosseguir</h5>
+          <div class="botoes">
+            <div>
+              <a href="#"><button class="btn-santos">Santos</button></a>
+            </div>
+
+            <div>
+              <a href="#"><button class="btn-sp">São Paulo</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

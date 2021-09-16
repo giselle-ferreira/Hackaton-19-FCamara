@@ -1,0 +1,23 @@
+.notFoundContainer {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  img {
+    max-width: 720px;
+    width: 80%;
+  }
+  button {
+    margin-top: 1rem;
+    background: none;
+    border: none;
+    color: #c4c4c4;
+    font-size: 1.5rem;
+    height:auto;
+    font-weight: bold;
+    font-family: 'WorkSans', sans-serif;
+    
+  }
+}

@@ -1,0 +1,356 @@
+main {
+  min-height: 100%;
+}
+/*----------------- Main -----------------*/
+.main {
+  display: flex;
+  justify-content: space-around;
+}
+
+/*----------------- Título Geral -----------------*/
+.titulo h1 {
+  padding-top: 38px;
+  font-family: "Spartan", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-left: 2.25rem;
+}
+
+/*----------------- Histórico -----------------*/
+.main .historico {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: baseline;
+  margin-top: 31px;
+  font-size: 0.875rem;
+  text-align: center;
+  height: 100vh;
+}
+
+.main .historico h1 {
+  font: 600 18px "Spartan", sans-serif;
+  justify-content: center;
+  align-items: center;
+  color: #2f2f2f;
+}
+
+.main .historico .board {
+  margin-top: 10px;
+  width: 330px;
+  max-height: 240px;
+  background: #fefefe;
+  border: 1.5px solid #e5e5e5;
+  border-radius: 17px;
+  font-family: "Work Sans", sans-serif;
+}
+.main {
+  .historico {
+    .board {
+      table {
+        width: 100%;
+      }
+    }
+  }
+}
+.main .historico .board .tableTitle {
+  width: inherit;
+  color: #fefefe;
+  padding-top: 10px;
+  font-size: 15px;
+  background: #990099;
+  font-weight: 600;
+  height: 42px;
+  tr {
+    th:nth-child(1) {
+      border-top-left-radius: 17px;
+    }
+
+    th:nth-last-child(1) {
+      border-top-right-radius: 17px;
+    }
+  }
+}
+
+.main .historico .board .tableTitle td {
+  display: inline;
+  font-size: 15px;
+}
+
+.main .historico .board table tbody {
+  align-content: center;
+}
+
+.main .historico .board table tr td {
+  padding-top: 8px;
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-left: 30px;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.main .historico .board .pages a {
+  font-family: "Work Sans", sans-serif;
+  padding: 2.5px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.main .historico .board .pages {
+  margin: 10px 30px;
+  font-family: "Work Sans", sans-serif;
+  .selectedPage {
+    color: #990099;
+    text-decoration: underline;
+  }
+}
+
+.pages a {
+  font-family: "Work Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #b1b1b1;
+}
+
+.pages a img {
+  height: 13px;
+  width: auto;
+  color: #b1b1b1;
+}
+
+.ordenar h4 {
+  font-family: "Work Sans", sans-serif;
+  justify-content: flex-end;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 15px;
+  color: #b1b1b1;
+}
+
+/*----------------- Agendamentos Atuais -----------------*/
+.main .agendamentosAtuais h1 {
+  text-align: center;
+  font-family: "Spartan", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 31px;
+  color: #2f2f2f;
+}
+
+/*----------------- Novo Agendamento -----------------*/
+
+.main .novoAgendamento {
+  text-align: center;
+}
+
+.main .novoAgendamento h1 {
+  font-family: "Spartan", sans-serif;
+  font-size: 18px;
+  margin-top: 31px;
+  font-weight: 600;
+  color: #2f2f2f;
+}
+
+.main .novoAgendamento h5 {
+  margin-top: 10px;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #5a5a5a;
+  justify-content: center;
+}
+
+.botoes {
+  margin-top: 34px;
+  justify-content: center;
+}
+
+.button {
+  background-color: #ba68c8;
+  color: #fefefe;
+  max-width: 252px;
+  max-height: 79px;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  font: normal 600 26px "Work Sans", sans-serif;
+}
+
+.btnSantos {
+  width: 100%;
+  height: 79px;
+  background: linear-gradient(
+      0deg,
+      rgba(153, 0, 153, 0.55),
+      rgba(153, 0, 153, 0.55)
+    ),
+    url("../../Assets/Images/santos.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.pagesMobile {
+  display: none;
+}
+
+.btnSp {
+  width: 100%;
+  height: 79px;
+  background: linear-gradient(
+      0deg,
+      rgba(153, 0, 153, 0.55),
+      rgba(153, 0, 153, 0.55)
+    ),
+    url("../../Assets/Images/saopaulo.jpg");
+  background-position: 100% 20%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 28px;
+}
+
+.btnSantos:hover,
+.btnSp:hover {
+  background: rgba(153, 0, 153, 0.55);
+}
+
+@media (max-width: 960px) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /*------ Main ------ */
+  main {
+    height: 100%;
+  }
+  .main {
+    flex-direction: column;
+  }
+
+  .titulo h1 {
+    text-align: center;
+    padding-top: 55px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*-- Novo Agendamento -- */
+
+  .main .novoAgendamento {
+    order: 1;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .main .novoAgendamento h1 {
+    font-size: 18px;
+    margin-top: 35px;
+  }
+
+  .main .novoAgendamento h5 a {
+    margin-right: 6px;
+  }
+
+  .localizacaoMobile {
+    display: inline-block !important;
+  }
+
+  .main .novoAgendamento h5 {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #990099;
+  }
+
+  .botoes {
+    margin-top: 8px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btnSp {
+    margin-top: 8px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btnSantos {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*-- Histórico -- */
+
+  .main .historico {
+    order: 2;
+    width: 310px;
+    margin-top: 58px;
+    margin-bottom: 48px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+  }
+
+  .pagesMobile {
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    color: #990099;
+    font-weight: 900;
+    text-decoration: underline;
+    p {
+      color: #990099;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 21px;
+      margin: 0 30px 0 30px;
+    }
+  }
+  .pages {
+    display: none;
+  }
+  .pagesMobile .pagesMobile .ordenar h4 {
+    display: none;
+  }
+
+  /*-- Agendamentos Atuais -- */
+
+  .main .agendamentosAtuais {
+    order: 3;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main .agendamentosAtuais .agendamento {
+    margin: 24px;
+    width: 310px;
+    height: 78px;
+  }
+
+  .main .agendamentosAtuais .agendamento h2 {
+    font-size: 22px;
+    line-height: 25px;
+  }
+
+  .main .agendamentosAtuais .agendamento h3 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #5a5a5a;
+    line-height: 21px;
+  }
+
+  .main .agendamentosAtuais .visualEdit h5 {
+    color: #6699cc;
+  }
+
+  .main .agendamentosAtuais .visualEdit a {
+    color: #6699cc;
+  }
+}

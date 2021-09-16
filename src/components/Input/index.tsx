@@ -1,4 +1,5 @@
 import { InputHTMLAttributes, useState } from "react";
+import { EmailRegexTeste } from "../../utils/emailRegexTeste";
 import styles from "./styles.module.scss";
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
@@ -9,8 +10,6 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const types = {
   email: {
-    regex:
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     message: "Preencha um email válido!",
   },
   shortPassword: {
@@ -31,7 +30,7 @@ export const Input = ({
     if (value.length === 0) {
       setError("Preencha um valor");
       return;
-    } else if (id === "email" && !types["email"].regex.test(value)) {
+    } else if (id === "email" && !EmailRegexTeste(value)) {
       setError(types["email"].message);
       return false;
     } else if (id === "password" && value.length < 4) {
@@ -40,7 +39,7 @@ export const Input = ({
     } else if (id === "checkPassword" && value !== password) {
       setError(types["noMatchingPasswords"].message);
       return false;
-    }else if (id === "checkPassword" && value.length < 4) {
+    } else if (id === "checkPassword" && value.length < 4) {
       setError(types["shortPassword"].message);
       return false;
     }
