@@ -302,19 +302,17 @@ main {
     font-weight: 900;
     text-decoration: underline;
     p {
-    color: #990099;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 21px;
-    margin: 0 30px 0 30px;
-  }
-
+      color: #990099;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 21px;
+      margin: 0 30px 0 30px;
+    }
   }
   .pages {
     display: none;
   }
-  .pagesMobile .pagesMobile 
-  .ordenar h4 {
+  .pagesMobile .pagesMobile .ordenar h4 {
     display: none;
   }
 
@@ -325,10 +323,13 @@ main {
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .main .agendamentosAtuais .agendamento {
-    margin-top: 24px;
+    margin: 24px;
     width: 310px;
     height: 78px;
   }

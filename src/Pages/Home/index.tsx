@@ -22,6 +22,7 @@ import toast, { Toaster } from "react-hot-toast";
 import previousPageMobile from "../../Assets/Images/previousPageMobile.svg";
 import nextPageMobile from "../../Assets/Images/nextPageMobile.svg";
 import { FormatDateToBackend } from "../../utils/formatDateToBackend";
+import tr from "date-fns/esm/locale/tr/index.js";
 
 type schedulingData = {
   id: number;
@@ -165,17 +166,23 @@ export const Home = () => {
                 </thead>
 
                 <tbody className={styles.tableBody}>
-                  {schedulingData.map((data) => {
-                    return (
-                      <tr key={data.id}>
-                        <td>{formatDate(data.date)}</td>
-                        <td>
-                          {data.seat} - Setor {data.sector}{" "}
-                          {data.office === 1 ? "(SP)" : "(SA)"}
-                        </td>
-                      </tr>
-                    );
-                  })}
+                  {schedulingData.length > 0 ? (
+                    schedulingData.map((data) => {
+                      return (
+                        <tr key={data.id}>
+                          <td>{formatDate(data.date)}</td>
+                          <td>
+                            {data.seat} - Setor {data.sector}{" "}
+                            {data.office === 1 ? "(SP)" : "(SA)"}
+                          </td>
+                        </tr>
+                      );
+                    })
+                  ) : (
+                    <tr>
+                      <td colSpan={2}>Você não possui agendamentos.</td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
               <div className={styles.pages}>
@@ -219,20 +226,28 @@ export const Home = () => {
           {/* <!-- agendamentos atuais --> */}
           <div className={styles.agendamentosAtuais}>
             <h1>AGENDAMENTOS ATUAIS</h1>
-            {latestScheduling.map((data) => {
-              return (
-                <LatestScheduling
-                  date={formatDate(data.date)}
-                  dateToBack={data.date}
-                  office={data.office}
-                  table={data.seat.toString()}
-                  dayOfWeek={formatDateGetOfWeek(data.date)}
-                  sector={data.sector}
-                  setModal={handleOpenConfirmationModal}
-                  id={data.id}
-                />
-              );
-            })}
+            {latestScheduling.length > 0 ? (
+              latestScheduling.map((data) => {
+                return (
+                  <LatestScheduling
+                    date={formatDate(data.date)}
+                    dateToBack={data.date}
+                    office={data.office}
+                    table={data.seat.toString()}
+                    dayOfWeek={formatDateGetOfWeek(data.date)}
+                    sector={data.sector}
+                    setModal={handleOpenConfirmationModal}
+                    id={data.id}
+                  />
+                );
+              })
+            ) : (
+              <p>
+                <br />
+                Você não possui agendamentos.
+                <br />
+              </p>
+            )}
           </div>
           {/* <!-- novo agendamento --> */}
           <div className={styles.novoAgendamento}>
